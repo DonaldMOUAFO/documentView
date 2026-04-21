@@ -1,0 +1,4 @@
+src/__pycache__
+/documentView.egg-info
+src/infrastructure/__pycache__
+src/domain/__pycache__

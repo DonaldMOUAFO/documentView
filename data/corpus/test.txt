@@ -1,0 +1,209 @@
+Cystic fibrosis affects 30,000 children and young adults in the US alone
+Inhaling the mists of salt water can reduce the pus and infection that fills the airways of cystic fibrosis sufferers, although side effects include a nasty coughing fit and a harsh taste. 
+That's the conclusion of two studies published in this week's issue of The New England Journal of Medicine.
+They found that inhaling a mist with a salt content of 7 or 9% improved lung function and, in some cases, produced less absenteeism from school or work. 
+Cystic fibrosis, a progressive and frequently fatal genetic disease that affects about 30,000 young adults and children in the US alone, is marked by a thickening of the mucus which makes it harder to clear the lungs of debris and bacteria. 
+The salt water solution "really opens up a new avenue for approaching patients with cystic fibrosis and how to treat them," says Dr Gail Weinmann, of the US National Heart, Lung, and Blood Institute, which sponsored one of the studies. 
+Mark Elkins of the Royal Prince Alfred Hospital in Sydney, Australia and colleagues authored one of the new published studies.
+The team found that the 83 volunteers who regularly inhaled a 7% mist of salty water had fewer breathing problems and less absenteeism from school or work than those who inhaled a solution with a salt content of under 1%. 
+"Adding salt [and water] to the airway surfaces of patients with cystic fibrosis is beneficial" for both children and adults, they conclude. 
+All of the patients first inhaled a chemical to try to open their lung passages as much as possible.
+In the second study, US-based Assistant Profsesor Scott Donaldson of the University of North Carolina at Chapel Hill and his colleagues found that a 7% salt mist "produced a sustained acceleration of mucus clearance and improved lung function" because it helped hydrate the lungs.
+In an accompanying editorial, Dr Felix Ratjen of the Hospital for Sick Children in Toronto, Canada, cited several unpleasant side effects of the salt mist treatment including a bad taste, coughing fits and the lengthy 30 minutes it can take to administer. 
+He added that in the study by Elkins and team, patients may not have received the best long-term antibiotic treatment. 
+That would make the inhaled salt water mist appear more effective than it would have been if people were getting a better drug, says Ratjen. 
+Weinmann says limitations inherent to the treatment mean a salt water mist "may be just a first step" in treating cystic fibrosis.
+
+Scientists have rescued a mouse immune system that was overwhelmed by a systemic blood infection. But will this work in humans?
+Scientists have discovered how infections that invade the whole body, like malaria, disable the immune system and prevent it from detecting and fighting other microorganisms.
+The Australian and German researchers say the discovery may help scientists to develop vaccines that restore immunity in people with systemic or 'whole body' infections. 
+They publish their research today online in the journal Nature Immunology.
+The immune response is alerted when specialised sentries of the immune system, dendritic cells, detect a virus or bacteria.
+They alert the immune system by capturing infected cells and displaying fragments or antigens of the pathogen on their surface in a process called cross-presentation.  
+Lead researcher Dr Jose Villadangos, an immunologist from the Walter and Eliza Institute of Medical Research in Melbourne, says systemic infections such as malaria or sepsis, a bacterial infection of the blood, overstimulate dendritic cells.
+This results in the immune system's critical alarm system shutting down.
+"This doesn't occur in local infections because only a few dendritic cells are involved," Villadangos says.
+"But in the case of malaria infections and sepsis, dendritic cells throughout the body are concentrated on alerting the immune system, which prevents them from detecting and responding to any new infections." 
+A new type of vaccine?
+Villadangos and colleagues managed to restore immunity in mice with an immune system compromised by sepsis.
+They injected them with a live vaccine made of dendritic cells that had been exposed to a secondary virus in the laboratory, and subsequently displayed antigens of that virus. 
+Villadangos says the findings show the missing link in the immunosupressed animal is the capacity of the dendritic cells to display the antigens of new viruses. 
+"We should be able to take dendritic cells from a patient with sepsis or malaria and expose them to antigens of the virus of a secondary infection and inject them back into the patient.
+"This strategy is already being used in the development of anti-cancer vaccines. We are yet to find out if will work against secondary infections in humans with a systemic infection," Villadangos says.
+
+Scientists will analyse the contents of this capsule for clues about how the solar system began
+A seven-year quest to return to Earth pristine samples from the solar system's formation ended in triumph in a dark and wet Utah desert at the weekend. 
+"It's hard to describe what it feels like to be at this point of the mission," University of Washington researcher and lead scientist of the Stardust mission Professor Don Brownlee said shortly after the probe's touchdown at 10:10 UTC (21:10 AEDT) on Sunday. 
+"We travelled almost 3 billion miles in space. We visited a comet, grabbed a piece of it and it landed here this morning," Brownlee said. "It's an incredible thrill." 
+Stardust released its precious cargo during a high-speed flyby of Earth, sending the tyre-sized canister soaring through space at a blazing speed of about 46,000 kilometres per hour when it smashed into the planet's atmosphere.
+This makes it the fastest human-made object, topping the record set in May 1969 by the returning Apollo 10 command module. 
+As its heat-shield fried away, a comet-like plume formed in its wake, looking like a torch that was visible in parts of the western US. 
+"We weren't quite sure how bright it was going to be and some people didn't think we would see anything," says Brownlee, who slipped outside the Utah base with some of his team members to try to spot the capsule's streak across the sky. 
+After scanning the sky for several minutes, Brownlee finally found an object that he said looked like Mars, but was clearly not where Mars was at the time. 
+"It was twinkling a little bit, getting a little brighter, and moving. I thought, maybe that's a helicopter. But it kept getting brighter and brighter and brighter," he says. 
+The object was reddish in colour and trailed a bright, glowing plume behind it, Brownlee says.
+"It's ironic, you have a comet mission that ends producing a comet." 
+Collecting spacedust
+During its time in space, Stardust passed by Comet Wild-2 (Vilt-2) and extended a gel-filled collecting device to trap some particles to take back to Earth. It also collected bits of interstellar dust. 
+Scientists believe comets contain unaltered material that was used to form the solar system. 
+"We did this mission to collect the most primitive materials we could in the solar system," Brownlee says.
+"We went to a comet that formed at the edge of the solar system, far from the Sun under very cold conditions. We're confident that it was made out of the initial building blocks of our solar system." 
+The capsule was retrieved by helicopter crews and taken to a clean room on the Utah Test and Training Range for inspection.
+The canister containing the samples is scheduled to be removed from the capsule and flown to the NASA Space Center in Houston on Tuesday. 
+There, scientists will catalogue the samples and begin distributing them to teams for analysis.
+
+Gotcha! A colourful, striking image can spark your interest
+Internet users can take just one-twentieth of a second to decide whether they like the look of a website, new research has found.
+"Visual appeal can be assessed within 50 milliseconds, suggesting that web designers have about 50 milliseconds to make a good impression," the Canadian researchers report in the March/April issue of the journal Behaviour & Information Technology.
+Dr Gitte Lindgaard and colleagues from Carleton University in Ottawa confirm that internet users are a fickle lot.
+The team did this by flashing up websites for 50 milliseconds and asking participants to rate them for visual appeal.
+When they repeated the exercise after a longer viewing period the ratings were consistent.
+The medium is the message
+The finding comes as bad news to anyone hoping to convey information, says Sue Burgess, an Australian researcher who evaluates website useability and senior lecturer in information management at the University of Technology Sydney.
+"There's no doubt that people do respond very quickly to websites and decide very quickly whether to stay on them," she says.
+The appeal of a website is usually tied to colour, movement and interactivity, she says, with the way the information is structured coming second.
+Burgess says it's unclear whether the internet is changing our ability to concentrate for long periods our if we are adapting to the medium.
+"There's so much information and ... there's always going to be a lot of clicking around just to see what's there," she says.
+The halo effect
+Australian associate professor of psychology Bill von Hippel, from the University of New South Wales, says it takes about 50 milliseconds to read one word, making this a "stunningly remarkable" timeframe in which to process the complex stimuli on a website.
+"It's quite remarkable that people do it that fast and that it holds up in their later judgement," he says.
+"This may be because we have an affective or emotional system that [works] independently of our cognitive system."
+In evolutionary terms, this ability helped us respond rapidly to dangerous situations, he says.
+The study also reflects the so-called halo effect, von Hippel says, where an initial bias towards something drives subsequent judgements.
+"This suggests that we make very quick judgements based on some sort of emotional reaction and our more considered judgements still reflect that first impression."
+
+Jewish people's history and migrations are reflected in their DNA, a new study shows
+Four Jewish mothers who lived 1000 years ago in Europe are the ancestors of 40% of all Ashkenazi Jews alive today, international researchers report.
+The DNA study paints a vivid picture of human evolution and survival, and correlates with the well-established written and oral histories of Jewish migrations, says Dr Doron Behar of the Technion-Israel Institute of Technology, who worked on the study. 
+The study, published in the American Journal of Human Genetics, suggests that some 3.5 million Jews alive today descended from four women. 
+For their study, Behar and scientists from Europe and the US sampled DNA from 11,452 people from 67 populations.
+"All subjects reported the birthplace of their mothers, grandmothers, and, in most cases, great-grandmothers," the scientists write. 
+They looked at mitochondrial DNA, which is found in cells, outside the nucleus and away from the DNA that carries most genetic instructions.
+Mitochondrial DNA is passed down virtually unchanged from mother to daughter, but it does occasionally mutate, at a known rate. 
+Researchers can use this molecular clock to track genetic changes through time.
+They used it, for instance, to compute when the "ancestral Eve" of all living humans lived: in Africa, about 180,000 years ago. 
+Now they have found four ancestral Jewish mothers. 
+"I think there was some kind of genetic pool that was in the Near East," Behar says.
+"Among this genetic pool there were four maternal lineages, four real women, that carried the exact specific mitochondrial DNA markers that we can find in mitochondrial DNA today." 
+Settling Europe
+They, or their direct descendants, moved into Europe. 
+"Then at a certain period, most probably in the 13th century, simply by demographic matters, they started to expand dramatically," Behar says. 
+"Maybe it was because of Jewish tradition, the structure of the family that might have been characterised by a high number of children."
+But these four families gave rise to much of the population of European Jews, which exploded from 30,000 people in the 13th century to "something like 9 million just prior to World War II", Behar says.
+The Nazis and their allies killed 6 million Jews during the war, but there are now an estimated 8 million Ashkenazi Jews, defined by their common northern and central European ancestry, cultural traditions and Yiddish language. 
+Behar says as they sampled people from Ashkenazi communities around the world, the same mitochondrial genetic markers kept popping up.
+They did not find the markers in most of the non-Jewish people they sampled, and only a very few were shared with Jews of other origin.
+Ancestry not genetic disease
+This particular study does not provide a direct explanation for some of the inherited diseases that disproportionately affect Jews of European descent, such as breast and colon cancer, because most diseases are caused by mutations in nuclear DNA, not the DNA studied by Behar's group. 
+These genes are believed to date from a 'bottleneck' phenomenon, when populations were squeezed down from large to small and then expanded again.
+Behar and Skorecki's team have found what is known as a 'founder effect', when one or a small number of people have a huge number of descendants.
+
+Scientists hope to gain an insight into the secret life of clouds with Australia's biggest climate experiment
+International storm chasers gathering in Australia this week will release more than 1000 weather balloons over the next month as part of the nation's largest meteorological study.
+The Tropical Warm Pool International Cloud Experiment, based in Darwin, will provide the world's most comprehensive set of data about the behaviour of thunderclouds, says Dr Peter May, a principal research scientist at the Australian Bureau of Meteorology in Melbourne.
+May says the study will give scientists better ways of modelling cloud behaviour, resulting in more accurate short-term weather forecasting and better predictions for long-term climate change.
+"The biggest uncertainty in climate forecasts and greenhouse calculations comes down to our understanding of thunderstorms," he says.
+"The underlying aim of this experiment is to increase our understanding of thunderstorms themselves, how they evolve and the large scale impact they have."
+Collaborators in the project include the bureau, the US Department of Energy Atmospheric Radiation Measurement Program, the CSIRO, NASA and universities from Australia, the US, Europe, Canada and Japan.
+Measuring ice crystals
+May says the tropical weather conditions in Darwin, which was devastated by Cyclone Tracy in 1974, provide a natural laboratory for storm watchers.
+And this is the time of year for tropical storms, when Darwin has its monsoon-like 'wet' season.
+The multi-million dollar study will have three prongs. 
+May says research planes will fly directly into the clouds to measure ice crystals while a ground-based network will use radars, laser and infrared systems to look at cloud characteristics and the movement of heat, moisture and light.
+And weather balloons will be released every three hours over 23 days from five sites around Darwin.
+"This data set is going to be a real resource for the whole meteorological community," May says.
+"It'll be the data set that people go to develop new model systems for the next 20 years. There will be dozens, if not hundreds of papers written about this experiment."
+May says the link between climate change and global storm patterns is unclear.
+But he says it's unlikely that climate change is directly responsible for isolated events, like Hurricane Katrina that struck New Orleans last year.
+"The question isn't is a particular storm due to climate change, the question is are we loading the dice so that we can expect more storms or will they be more intense," he says.
+
+Artists think Pluto looks like this. But we won't know for certain until NASA's New Horizons spacecraft, due to launch this week, reaches the distant planet in about a decade
+The US space agency is set to shed light on Pluto with the launch of the New Horizons spacecraft this week.
+The spacecraft, which is due to be launched at 05:24 AEDT on Wednesday (18:24 UTC, Tuesday) will also investigate a new class of planet-like objects, called ice dwarfs, that exist beyond the orbit of Neptune.
+Over the decades, NASA has launched probe after probe for close-up studies of Earth's sister planets. But distant Pluto has remained shrouded in mystery, with only a few fuzzy telescope pictures for scientists to ponder. 
+"What we know about Pluto today could fit on the back of postage stamp," says Dr Colleen Hartman, NASA's deputy associate administrator for science.
+And New Horizon's principal investigator Dr Alan Stern, with the Southwest Research Institute in Boulder, Colorado, agrees we have much to learn about the history of these distant objects.
+"These are objects that were growing to planethood, but something stopped that process of growth mid-gestation," he says. "It left us these fossil relics." 
+Pluto is the largest and best-known object in the Kuiper Belt region of the solar system.
+Like comets, the planetary bodies in the Kuiper Belt region are so far from the Sun that scientists believe they still contain some of the original material that was used to form the solar system. 
+How the universe formed
+New Horizons is a U$700 million (A$928 million) attempt to learn more about how the universe formed.
+The piano-sized spacecraft contains seven science instruments to map Pluto, its largest moon Charon, and two other recently discovered smaller moons, as well as other Kuiper Belt objects. 
+To shave as much time as possible from the journey to Pluto, which will take more than nine years, NASA is launching New Horizons aboard a massive rocket typically used for communications satellites five to 10 times heftier than the half-tonne science probe. 
+The launch vehicle, an Atlas 5 rocket with two upper-stage motors and an unprecedented five solid-rocket strap-on boosters for extra punch, has successfully flown six previous missions.
+The rocket was rolled out from its hangar to its Cape Canaveral launch pad earlier this week.
+Even with the 58,000 kilometre per hour boost into space, New Horizons will still need to bounce off Jupiter's massive gravity field and travel for nearly a decade to reach Pluto. 
+Hitching a ride
+If the probe cannot be launched by 2 Feburary it will miss the opportunity to slingshot off Jupiter and take an additional three to five years to reach Pluto, depending on the actual launch date. 
+Scientists, who already have waited decades for NASA to approve and fund a mission to Pluto, are happy to at last be on their way. 
+"This is a place where nature operates at vastly different temperatures and conditions than we're familiar with on Earth," says New Horizons co-investigator Professor Richard Binzel with the Massachusetts Institute of Technology. 
+"We're poised to begin the exploration of a new world," adds Dr Dale Cruikshank, with the NASA Ames Research Center in California.
+
+Backpackers form a highly mobile community, says a researcher who's developing a new communication device especially for them
+Backpackers may one day use a mobile travel assistant to ring home and network with other travellers while finding out the cost of a bus ticket to Bondi Beach, an Australian researcher says.
+The digital travel buddy would also act as a travel guide with information about the best places to go and how to get there, says Jeff Axup, a PhD student at the University of Queensland and former backpacker.
+Axup has been studying backpacker culture and communication as part of his research into the technology needs of so-called mobile communities.
+"A lot of research focuses too much on the technology and tries to find an application," he says.
+"We like to look at how people naturally act and try to come up with technology to fit their needs."
+In a recent study Axup shadowed a group of backpackers and documented their behaviour as they toured Brisbane, took a boat cruise and visited an animal park.
+The results of his study are published on the ePrintsUQ website and will be submitted for publication in coming weeks.
+Axup's latest research includes prototypes of the technology, which is being developed with the Australasian CRC for Interaction Design.
+The final product will probably be software-based so backpackers can download it onto their mobile phones, he says.
+And it will be likely to include instant messaging and discussion forums, or use wireless technology.
+Mobile communities
+Axup says backpackers are cultural symbols of an increasingly mobile world, a change brought about by improved transport and technology and the breakdown of the traditional neighbourhood.
+"One term to describe this is glocalisation, where you still have your local communities but they've gone global and they may be distributed," he says.
+Backpackers already use mobile phones, text messaging and the internet but Axup's research shows that they are driving changes in technology as much as the technology is changing the nature of travel.
+"Any time you introduce new technology it always enters an existing social and technological environment, so it will of course change the existing environment," he says.
+"But then people will take it and use it in ways that were never expected and maybe even change the technology."
+
+Watching a comedy is as good for the heart as aerobic exercise, new research suggests
+Watching a comedy film boosts the flow of blood to the heart, but watching a sad film makes the flow decline, a US study shows.
+University of Maryland researchers asked 20 young people to watch movie segments lasting 15 to 30 minutes, taken from comedy films and serious films, with at least 48 hours between the two sessions. 
+With the help of ultrasound, the researchers measured the study participants' blood flow through the brachial artery.
+This vessel runs between the shoulder to the elbow and its blood flow is thought to be a good indicator of blood flow around the body.
+Blood flow was reduced in 14 of the 20 volunteers when they watched extracts such as the distressful opening scenes to Saving Private Ryan.
+But blood flow rose in 19 out of 20 when they watched funny clips, such as scenes from Something About Mary. 
+The difference between the two flows was more than 50%, according to the study, which appears today in the journal Heart. 
+Watching a sad movie has about the same effect on heart flow as remembering an angry incident or doing mental arithmetic, it says. 
+But watching a comedy is equivalent to a bout of aerobic exercise or starting a course of cholesterol-busting statin drugs. 
+Depression, anxiety, hostility and anger are already known to impair nitric oxide pathways that help blood vessels to dilate. 
+The authors tentatively suggest that a chuckle may stimulate selected hormones to have the opposite effect. 
+"Positive emotions such as mirthful laughter [may] have a [beneficial] effect on the endothelium," the cells that line the walls of the blood circulation system, they speculate.
+
+Why did the turtle cross the road? Because it wanted lunch
+Scientists are studying the wandering ways of Australia's eastern long-necked turtle to see if can learn to cross the road.
+Professor Arthur Georges, director of the applied ecology research group at the University of Canberra, says it's the first time researchers have documented how roads affect the turtles.
+Georges says unlike other turtles, Chelodina longicollis has evolved the ability to take long overland hikes because it prefers ephemeral waters, such as temporary swamps and pools.
+"When a wetland dries, the nutrients are released from the sediment and when it refills there's a flush of production, so they're capitalising on all the insects and other foods that benefit from that flush," he says.
+The hardy creatures gravitate to permanent waters in a drought, where they can  'switch off' growth and reproduction, sometimes for as long as seven years. They then hit the road as soon as the rains come.
+Georges and his team are studying a population of turtles in Jervis Bay in southern New South Wales and hope to have some results ready for publication in the middle of the year.
+Look right, look left, look right again
+Georges says the long-necked turtle is familiar with its environment and may even have learnt to avoid roads.
+"What we have found is that they ... use the Sun and an internal clock to navigate and they know landscape really well so they tend to beeline to various places," he says.
+"We're going to take them from the wetlands and release them near a road and observe their behaviour as they approach the road. They may have an aversion to [it] and turn around."
+But if the road safety message hasn't sunk in it may be necessary to build tunnels under roads to provide them with safe passage, he says.
+While it appears that some aspects of development have got in the way of the turtle's natural behaviour, it hasn't been all bad for the long-necked turtle, Georges says.
+"When you fly over [surrounding farmland] you'll see there are lots of dams," he says.
+"Each one is full of about 20-30 turtles, and those sorts of water bodies weren't there before," he says.
+"But on the downside, when a road runs through a wetland you can increase the chance that over time the population will decline."
+
+Landslides like this one in Pakistan earlier this week may become more common if climate change increases rainfall, scientists say
+Heavier rainfall as a result of climate change could loosen soils making landslides more common, UN experts say.
+This may risk hillside slums in Latin America to antiquities in Egypt's Valley of the Kings, according to scientists meeting in Tokyo this week to discuss ways to prevent and ease damage from landslides.
+"If climate change predictions are accurate you will expect ... more intense and extreme rainfalls," says Professor Srikantha Herath, senior academic officer of the UN University. 
+A report released at the time of the meeting says some cultural sites are at risk from landslides, including the Valley of the Kings where Egypt's Pharaohs are buried, the Inca mountain fortress of Machu Picchu in Peru and China's Huaqing Palace dating from the Tang dynasty. 
+"Special attention should be given to cultural and natural heritage sites of universal and irreplaceable values," says Professor Kyoji Sassa, director of the Disaster Prevention Research Institute at Japan's Kyoto University.
+"In some places, particularly in developing countries, the natural threats are being exacerbated by rapid tourism development," he says.  
+Early warning
+Herath says the Tokyo talks are likely to call for better monitoring and early warning systems, special protection of cultural sites, better preparedness and quick aid for victims. 
+He says it is impossible to say if global warming is already causing more landslides. 
+Of natural disasters, landslides are the seventh biggest killer behind droughts, storms, floods, earthquakes, volcanoes and extreme temperatures, according to the report for the UN University, Kyoto University and UNESCO.
+Among severe landslides, about 2800 died in Cholima in Honduras in 1973 and almost 1200 in northern Italy in 1963.
+The Louvain University database on which the figures are based often excludes landslides triggered by earthquakes. 
+Unstable hillsides
+In many poor nations, many people were forced to live on unstable hillsides, away from flat plains exploited for farming. 
+"Late arrivals are always settling in the most dangerous land," says Professor Janos Bogardi, director of the UN University Institute for Environment and Human Security. 
+He says that better building codes and simply giving out information about the risks of mudslides could save lives.
+Asia suffered most with 220 landslides in the past century out of about 500 that caused human deaths, the scientists say. Many of the most deadly mudslides were in Latin America and the costliest in Europe. 
+About 800-1000 people died in landslides in each of the past 20 years, the UN University says.
