@@ -1,7 +1,8 @@
 import argparse
 from src.infrastructure import config, prompt_engineering
-from sentence_transformers import SentenceTransformer
-from src.domain.document_handler import load_txt, clean_text, chunk_text, recursive_chunk, tokentextsplitter_chunk, prepare_corpus
+from src.domain.document_handler import (load_txt, clean_text, chunk_text, 
+                                         recursive_chunk, tokentextsplitter_chunk, 
+                                         prepare_corpus)
 from src.domain.embeddings import load_model, compute_embeddings, top_k_similar
 
 def parse_args():
@@ -17,14 +18,11 @@ def parse_args():
 
     return parser.parse_args()
 
-def main() :
-    print(config.CORPUS_DIR)
-    print(config.CORPUS_FILE_PATH)
-
-    args = parse_args()
-
-    text = load_txt(args.doc_path)
+def rag_answer(file_path=config.CORPUS_FILE_PATH) :
+    
+    text = load_txt(file_path)
     text = clean_text(text)
+
     print("============================= CHUNK TEXT FROM chunk_text ==================================")
     chunked_text = chunk_text(text)
     print(f"len:{len(chunked_text)}\n{chunked_text}")
@@ -53,7 +51,7 @@ def main() :
     # top_k = top_k_similar(q_emb, embeddings, text, k=config.DEFAULT_TOP_K)
     # print(f"top_k : {top_k}")
 
-    chunked_text, metadata = prepare_corpus(chunked_text, file_path=args.doc_path, meta_path=config.META_DATA_FILE_PATH)
+    chunked_text, metadata = prepare_corpus(chunked_text, file_path=config.CORPUS_FILE_PATH, meta_path=config.META_DATA_FILE_PATH)
     
     print(f'Question embedding : {q_emb.shape}, embeddings : {embeddings.shape}, metada len : {len(metadata)}, text len : {len(chunked_text)}')
     top_k = top_k_similar(q_emb, embeddings, chunked_text, metadata, k=config.DEFAULT_TOP_K)
@@ -66,16 +64,9 @@ def main() :
     # print(f"prompt: {prompt}")
     # print(f"==================================================================================================================================")
 
-    prompt = prompt_engineering.rag_response_generation(
+    answer_generated = prompt_engineering.rag_response_generation(
         prompt, top_k, metadata, embeddings, model,
     )
-
-    # answer_generated = str(answer_generated)
-    # prompt = prompt + answer_generated["answer"]
-    for key, val in prompt.items():
-        print(key, ":", val, "\n")
-    print(f"==============================================================================================================================")
-
-if __name__ == "__main__" :
-    main()
-# python src/application/main.py -d data/corpus/test.txt
+    prompt = prompt + answer_generated["answer"]
+    
+    return prompt

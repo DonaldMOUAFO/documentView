@@ -2,10 +2,11 @@ import re
 import numpy as np
 import ollama
 import requests
+from htbuilder import div, pre, b, span
 from src.infrastructure import config
 
 STRICT_SYSTEM_PROMPT = (
-    "You are a concise assistant. Use ONLY the provided context."
+    "You are a concise assistant. Use ONLY the provided context. "
     "If the answer is not contained verbatim or explicitly, say you do not know."
 )
 
@@ -15,16 +16,69 @@ SYNTHESIZING_SYSTEM_PROMPT = (
     "sufficient evidence, say you do not know instead of guessing."
 )
 
-USER_QUESTION_TEMPLATE = "User Question: {question}\nAnswer: "
-
-CONTEXT_HEADER = "Context:"
+USER_QUESTION_TEMPLATE = "User: {question}"
+CONTEXT_HEADER = "Context"
 
 def build_prompt(context, question:str, allow_synthesis: bool=False) -> str:
     
     system_prompt = SYNTHESIZING_SYSTEM_PROMPT if allow_synthesis else STRICT_SYSTEM_PROMPT
     context_str = "\n\n".join(context)
 
-    return f"""System : {system_prompt}\n{CONTEXT_HEADER}\n{context_str}\n\n{USER_QUESTION_TEMPLATE.format(question=question)}"""
+    return {
+        "System" : system_prompt,
+        "Context": context_str,
+        "User": question,
+    }
+
+def history_aware_prompt(prompt, messages_historic, last_question):
+
+    # prompt_str = f"""System:{prompt["System"]}\n\nContext:\n{prompt["Context"]}\n\nUser:{prompt["User"]}"""
+
+    history = "\n".join(
+        [f"{m['role']}:{m['content']}" for m in messages_historic]
+    )
+
+    prompt = f"""{prompt},
+    
+    Conversation :
+    {history}
+
+    Question :
+    {last_question}
+    """
+    return prompt
+
+
+def handle_html_content(prompt:dict):
+
+    return div(
+
+        b("System"),
+        pre(prompt["System"]),
+        tyle="display:inline-block; margin:0; vertical-align:top;"
+    
+        #row("System:", prompt["System"]),
+        # b("System"), pre( prompt["System"] ) ,
+        # div( b("Context:"), pre("".join(prompt["Context"])) ),
+        # div( b("User:"), pre("".join(prompt["User"]))) ,
+        # div( b("Answer:"), pre("".join(prompt["Answer"])) )
+    )  
+
+def row(label, content):
+    return div(
+        b(label),
+        pre(content),
+        tyle="display:inline-block; margin:0; vertical-align:top;"
+    )  
+
+def build_prompt_ui(prompt:dict):
+
+    return div(
+        row("System:", prompt["System"]),
+        row("Context:", prompt["Context"]),
+        row("User:", prompt["User"]),
+        row("Answer:", prompt["Answer"])
+    )
 
 def ollama_available() -> bool:
     try:
@@ -48,6 +102,31 @@ def call_ollama(model:str, prompt:str, stream:bool=False)-> str:
                 return resp.get("response", "")
         except Exception:
             pass  # Fall back to HTTP if client call fails
+
+def generation_chat_response(model:str, prompt):
+    res = ollama.chat(
+        model = model,
+        messages = [{"role":"user", "content":prompt}]
+    )
+    # {"model":"llama3",
+    #  "created_at":"2026-04-27T10:32:05.764087178Z",
+    #  "done":true,
+    #  "done_reason":"stop",
+    #  "total_duration":2923788565,
+    #  "load_duration":1856887344,
+    #  "prompt_eval_count":473,
+    #  "prompt_eval_duration":349000694,
+    #  "eval_count":39,
+    #  "eval_duration":660751043,
+    #  "message":"""Message(
+   	#     role='assistant', 
+   	#     content='Based on the provided context, [...] answer to the question.', 
+   	#     thinking=None, images=None, tool_name=None, tool_calls=None
+    #   )""",
+    #  "logprobs":null
+    # }
+    #prompt["Answer"] = res["message"]["content"]
+    return res["message"]["content"]
 
 def _sentence_split(text:str) -> list[str] :
     """Splits text into sentences using regrex"""
@@ -92,7 +171,8 @@ def rag_response_generation(
     if not ollama_available():
         raise RuntimeError("Ollama is not available. Please ensure Ollama is running and accessible.")
     else :
-        answer = call_ollama(model=llm_model_name, prompt=prompt) 
+        prompt_str = f"""System:{prompt["System"]}\n\nContext:\n{prompt["Context"]}\n\nUser:{prompt["User"]}"""
+        answer = call_ollama(model=llm_model_name, prompt=prompt_str) 
 
     # sentences = _sentence_split(answer)
     # support_rows, cited_sentences = _compute_support(
@@ -105,13 +185,15 @@ def rag_response_generation(
     #     "retrieved top": {top_k_text}.
     # """
     # )
-    print("============================================================================================================================================")
 
-    return {
-        "answer" : answer,
-        #"retrieved": top_k_text, # update cited_sentences
-        #"synthesis_used" : allow_synthesis,
-        #"synthesis_heuristic": allow_synthesis,
-        #"rows" : support_rows,
-    }
+    prompt["Answer"] = answer
+
+    return prompt
+    # {
+    #     "answer" : answer,
+    #     #"retrieved": top_k_text, # update cited_sentences
+    #     #"synthesis_used" : allow_synthesis,
+    #     #"synthesis_heuristic": allow_synthesis,
+    #     #"rows" : support_rows,
+    # }
     

@@ -1,8 +1,11 @@
 import json
+import streamlit as st
 import numpy as np
+from os import path
 from typing import List, Dict, Tuple, Any
 from sentence_transformers import SentenceTransformer
 from src.infrastructure import config
+from src.interface.streamlit_app import inform_message
 
 def load_model(model_name: str) -> SentenceTransformer:
     """
@@ -40,27 +43,23 @@ def compute_embeddings(
             chunks, normalize_embeddings=normalize, convert_to_numpy=True
         )
 
-        print("/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////")
-        print(np.linalg.norm(embeddings, keepdims=True))
-        print(embeddings.shape)
-        print("/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////")
-
         return embeddings
-    
-    print("/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////")
-    print(np.linalg.norm(embeddings, axis=1, keepdims=True))
-    print("/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////")
 
     if normalize:
-        norms = np.linalg.norm(embeddings, axis=1, keepdims=True)
-        norms[norms == 0] = 1.0
-        embeddings = embeddings / norms 
-
+        try :
+            norms = np.linalg.norm(embeddings, axis=1, keepdims=True)
+            norms[norms == 0] = 1.0
+            embeddings = embeddings / norms 
+        except Exception as e :
+            # st.error(f" Error reading Pdf : {e}\nMake you document fulfill the requirements")
+            embeddings = None
     return embeddings
 
-def save_embeddings(embeddings, emb_file_path=config.EMBEDINGS_FILE_PATH):
-    np.save(emb_file_path, embeddings)
-    print(f"Embeddings successfully saved at {emb_file_path}...")
+def save_embeddings(embeddings, embs_file_path):
+    np.save(embs_file_path, embeddings)
+    inform_message(
+        f"mbeddings successfully saved at {embs_file_path}..."
+    )
 
 def save_meta_data(metadata, metadata_file_path=config.META_DATA_FILE_PATH):
     json.dump(metadata, open(metadata_file_path, "w", encoding="utf-8"), indent=2)
@@ -82,7 +81,6 @@ def top_k_similar(query_emb, emb_matrix, texts, metadata,
     results = []
     for idx in ranked[:k*2]: # consider more thant k to allow for threshold ffiltering
         score = float(sims[idx])
-        print(f"idx: {idx}, score : {score}, ranked : {ranked} ranked[:k*2]: {ranked[:k*2]}")
 
         if score < sim_threshold and len(results) >= k:
             break

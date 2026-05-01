@@ -1,7 +1,10 @@
 import faiss
 import numpy as np
+from os import path
+import streamlit as st
 
 from src.infrastructure import config
+from src.interface.streamlit_app import inform_message
 
 def build_hnsw_index(
         embeddings: np.ndarray, 
@@ -32,11 +35,15 @@ def build_hnsw_index(
     
     return index
 
-def save_index(index, index_path=config.INDEX_FILE_PATH):
-    faiss.write_index(index, str(index_path))
-    print(f"FAISS index saved to {index_path}...")
+def save_index(index, index_file_path): 
+    faiss.write_index(
+        index, str(index_file_path)
+    )
+    inform_message(f"FAISS index saved to {index_file_path}...")
 
 def load_index(index_path=config.INDEX_FILE_PATH):
-    if not index_path.exists():
-        raise FileNotFoundError(f"FAISS index file not found: {index_path}")   
-    return faiss.read_index(str(index_path))
+    indexes = faiss.read_index(str(index_path))
+    inform_message(
+        f"mbeddings successfully saved at {index_path}..."
+    )  
+    return indexes
