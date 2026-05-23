@@ -1,0 +1,258 @@
+{
+  "1": {
+    "text": "Donald MOUAFO Ph.D. Data Scientist ML AI Engineer AWS Valenciennes - France 33 (0) 7 83 04 54 17 donald.l.mouafogmail.com IBM Data Science Professional Certi\ufb01cate AWS Certi\ufb01ed Machine Learning Engineer Associate EXPERIENCE . 2023 - Lead ML Engineer, BESTTIC - Valenciennes, France Sentiment analysis application for social media content Retrieve comments from social media content, perform sentiment",
+    "metadata": {
+      "page": 1,
+      "id": 1,
+      "source": "Resume_Donald-MOUAFO.pdf",
+      "size": 315207,
+      "type": "application/pdf",
+      "title": "Resume_Donald-MOUAFO__MLE",
+      "author": "",
+      "creator": "",
+      "producer": "Skia/PDF m149 Google Docs Renderer",
+      "modification_date": "",
+      "creation_date": ""
+    }
+  },
+  "2": {
+    "text": "media content Retrieve comments from social media content, perform sentiment analysis and serve statistics in an API. Stack Python, Transform ers, Sentiem entPiece, NLKT, ML\ufb02ow, Fast API Orchestration Infrastructure GitLab CI, ML\ufb02ow, Sagem aker pipeline, Docker, Gitlab CI, Terraform , Bash Real time and batch energy consumption forecast and anomalies detection service for a large scale",
+    "metadata": {
+      "page": 1,
+      "id": 2,
+      "source": "Resume_Donald-MOUAFO.pdf",
+      "size": 315207,
+      "type": "application/pdf",
+      "title": "Resume_Donald-MOUAFO__MLE",
+      "author": "",
+      "creator": "",
+      "producer": "Skia/PDF m149 Google Docs Renderer",
+      "modification_date": "",
+      "creation_date": ""
+    }
+  },
+  "3": {
+    "text": "energy consumption forecast and anomalies detection service for a large scale application used for intelligent building management. Stack Python, TensorFlow, LSTM, Prophete, ARIMA, ML\ufb02ow Deploym ent AW S (S3, Kenesis, ECR, SageMaker), Docker, GitLab CI. Designed end-to-end implementation of a RAG system using embeddings, vector stores, and LLM APIs for context-aware generation. Optimized",
+    "metadata": {
+      "page": 1,
+      "id": 3,
+      "source": "Resume_Donald-MOUAFO.pdf",
+      "size": 315207,
+      "type": "application/pdf",
+      "title": "Resume_Donald-MOUAFO__MLE",
+      "author": "",
+      "creator": "",
+      "producer": "Skia/PDF m149 Google Docs Renderer",
+      "modification_date": "",
+      "creation_date": ""
+    }
+  },
+  "4": {
+    "text": "embeddings, vector stores, and LLM APIs for context-aware generation. Optimized indexing, chunking, and ranking to boost precision and latency for real time prompting. Stack Python, LangChain, LlamaIndex, OpenAI, Qdrant, LangSmith 2020 - 2023 ML Engineer, BESTTIC - Valenciennes, France Develop and deploy an end-to-end real-time vehicle detection and speed estimation application based on video",
+    "metadata": {
+      "page": 1,
+      "id": 4,
+      "source": "Resume_Donald-MOUAFO.pdf",
+      "size": 315207,
+      "type": "application/pdf",
+      "title": "Resume_Donald-MOUAFO__MLE",
+      "author": "",
+      "creator": "",
+      "producer": "Skia/PDF m149 Google Docs Renderer",
+      "modification_date": "",
+      "creation_date": ""
+    }
+  },
+  "5": {
+    "text": "real-time vehicle detection and speed estimation application based on video flux from uncalibrated traffic cameras. Stack Python, OpenCV, Yolov11, ByteTrack, Flask Deploym ent Docker, Bash, On-promise-server Develop and deploy a real-time facial recognition application for access control in restrictive zones. Stack OpenCV, MTCNN, FACENET, SVM, MLFlow, Docker Develop and training ofLSTM encoder -",
+    "metadata": {
+      "page": 1,
+      "id": 5,
+      "source": "Resume_Donald-MOUAFO.pdf",
+      "size": 315207,
+      "type": "application/pdf",
+      "title": "Resume_Donald-MOUAFO__MLE",
+      "author": "",
+      "creator": "",
+      "producer": "Skia/PDF m149 Google Docs Renderer",
+      "modification_date": "",
+      "creation_date": ""
+    }
+  },
+  "6": {
+    "text": "MTCNN, FACENET, SVM, MLFlow, Docker Develop and training ofLSTM encoder - LSTM decoder stack model for failure prediction (Prediction of remaining useful life - RUL). Stack PCA, LSTM-Autoencoder LSTM decoder 2018 - 2019 CNRS, Strasbourg - PostDoc, Project Nanomaterial-based optothermal switching devices. EDUCATION . 2015 - 2018 Ph.D. Physics, University of Strasbourg, France 2014 - 2015 MSc.",
+    "metadata": {
+      "page": 1,
+      "id": 6,
+      "source": "Resume_Donald-MOUAFO.pdf",
+      "size": 315207,
+      "type": "application/pdf",
+      "title": "Resume_Donald-MOUAFO__MLE",
+      "author": "",
+      "creator": "",
+      "producer": "Skia/PDF m149 Google Docs Renderer",
+      "modification_date": "",
+      "creation_date": ""
+    }
+  },
+  "7": {
+    "text": ". 2015 - 2018 Ph.D. Physics, University of Strasbourg, France 2014 - 2015 MSc. Physics, University of Strasbourg, France 2014 - 2015 MSc. Physics, University of Yaound\u00e9 1, Cameroon SKILLS Data science ML-Engineer MLops LLMops Cloud AWS - GCP Project management TECHNOLOGIES Python, sklearn TensorFlow KERAS Pytorch SageMaker Flask, OpenCV VS-code, Pytest, GitLab, Github Jupyter Notebook Google",
+    "metadata": {
+      "page": 1,
+      "id": 7,
+      "source": "Resume_Donald-MOUAFO.pdf",
+      "size": 315207,
+      "type": "application/pdf",
+      "title": "Resume_Donald-MOUAFO__MLE",
+      "author": "",
+      "creator": "",
+      "producer": "Skia/PDF m149 Google Docs Renderer",
+      "modification_date": "",
+      "creation_date": ""
+    }
+  },
+  "8": {
+    "text": "SageMaker Flask, OpenCV VS-code, Pytest, GitLab, Github Jupyter Notebook Google Colab MLFlow Pipeline CICD Docker, Spark Kubernetes Elasticsearch PostgreSQL MongoDB Pack of\ufb01ce LANGUAGES French \ufb02uent English \ufb02uent Tournez la page svp 13",
+    "metadata": {
+      "page": 1,
+      "id": 8,
+      "source": "Resume_Donald-MOUAFO.pdf",
+      "size": 315207,
+      "type": "application/pdf",
+      "title": "Resume_Donald-MOUAFO__MLE",
+      "author": "",
+      "creator": "",
+      "producer": "Skia/PDF m149 Google Docs Renderer",
+      "modification_date": "",
+      "creation_date": ""
+    }
+  },
+  "9": {
+    "text": "CERTIFICATIONS . Jan. 2026 AWS Certi\ufb01ed Machine Learning Associate Jul. 2025 AWS Certified Cloud Practitioner July. 2020 ML Engineer Bootcamp, YOTTAia ACADEMY, France Mar. 2020 IBM Data Science Specialization SOFT SKILLS Project management - Agile methodology - RGPD Teamwork List of publications L. D. N. Mouafo, et al. Uncalibrated camera approach for vehicle speed estimation using detection and",
+    "metadata": {
+      "page": 2,
+      "id": 9,
+      "source": "Resume_Donald-MOUAFO.pdf",
+      "size": 315207,
+      "type": "application/pdf",
+      "title": "Resume_Donald-MOUAFO__MLE",
+      "author": "",
+      "creator": "",
+      "producer": "Skia/PDF m149 Google Docs Renderer",
+      "modification_date": "",
+      "creation_date": ""
+    }
+  },
+  "10": {
+    "text": "Uncalibrated camera approach for vehicle speed estimation using detection and tracking , Signal, Im age and Video Processing, (2024) D. Mouafo et al. Face recognition system for controlled access to restricted zone , httpsdoi.org10.18280ijsse.120214 , (2022) D. Mouafo et al. LSTM And LSTM Autoencoder For Predictive Maintenance Approach Applied To Slagging Formation , IJETR (2021) L. D. N. Mouafo",
+    "metadata": {
+      "page": 2,
+      "id": 10,
+      "source": "Resume_Donald-MOUAFO.pdf",
+      "size": 315207,
+      "type": "application/pdf",
+      "title": "Resume_Donald-MOUAFO__MLE",
+      "author": "",
+      "creator": "",
+      "producer": "Skia/PDF m149 Google Docs Renderer",
+      "modification_date": "",
+      "creation_date": ""
+    }
+  },
+  "11": {
+    "text": "Approach Applied To Slagging Formation , IJETR (2021) L. D. N. Mouafo et al. 0D2D Heterostructures Vertical Single Electron Transistor , ACS Applied Materials Interfaces, 31 (2020) 1616-301X L. D. N. Mouafo et al. Anisotropic Magneto-Coulomb properties of 2D-0D heterostructure single electron device, Adv. Mater. 2018, 30, 1802478 L. D. N. Mouafo et al. Tuning contact transport mechanisms in high",
+    "metadata": {
+      "page": 2,
+      "id": 11,
+      "source": "Resume_Donald-MOUAFO.pdf",
+      "size": 315207,
+      "type": "application/pdf",
+      "title": "Resume_Donald-MOUAFO__MLE",
+      "author": "",
+      "creator": "",
+      "producer": "Skia/PDF m149 Google Docs Renderer",
+      "modification_date": "",
+      "creation_date": ""
+    }
+  },
+  "12": {
+    "text": "30, 1802478 L. D. N. Mouafo et al. Tuning contact transport mechanisms in high onoff ratio bilayer MoSe2 transistors up to Fowler-Nordheim regime, 2D Mater. 4 (2017) 015037 F. Godel, L. D. N. Mouafo, et al. Conductance Oscillations in a GrapheneNanocluster Hybrid Material Toward Large-Area Single-Electron Devices, Adv. Mater., vol. 29, no. 3, p. 1604837, 2017 Ha. Le. Thi. NGoc, L. D. N. Mouafo,",
+    "metadata": {
+      "page": 2,
+      "id": 12,
+      "source": "Resume_Donald-MOUAFO.pdf",
+      "size": 315207,
+      "type": "application/pdf",
+      "title": "Resume_Donald-MOUAFO__MLE",
+      "author": "",
+      "creator": "",
+      "producer": "Skia/PDF m149 Google Docs Renderer",
+      "modification_date": "",
+      "creation_date": ""
+    }
+  },
+  "13": {
+    "text": "Mater., vol. 29, no. 3, p. 1604837, 2017 Ha. Le. Thi. NGoc, L. D. N. Mouafo, et al. Surface-Driven Magnetotransport in Perovskite Nanocrystals, Adv. Mater. vol. 2017, 1604745 B. Martinez, C. Livache, L.D.N. Mouafo, et al. HgSe Self-Doped Nanocrystals as a Platform to Investigate the Effects of Vanishing Con\ufb01nement , ACS Applied Materials Interfaces, 9 (2017) 36173-36180 Conferences E-MRS Spring",
+    "metadata": {
+      "page": 2,
+      "id": 13,
+      "source": "Resume_Donald-MOUAFO.pdf",
+      "size": 315207,
+      "type": "application/pdf",
+      "title": "Resume_Donald-MOUAFO__MLE",
+      "author": "",
+      "creator": "",
+      "producer": "Skia/PDF m149 Google Docs Renderer",
+      "modification_date": "",
+      "creation_date": ""
+    }
+  },
+  "14": {
+    "text": "ACS Applied Materials Interfaces, 9 (2017) 36173-36180 Conferences E-MRS Spring Meeting 2017 Strasbourg,France. Oral Communication Single electron transport in graphenequantum -dots hybrid m aterial tow ards large area single electron devices . HeteroNanoCarb 2017 Benasque, Spain. Oral Communication 2D-0D heterostructures for nanoelectronics and spintronics . Workshop NACRE, Dec 12-14th",
+    "metadata": {
+      "page": 2,
+      "id": 14,
+      "source": "Resume_Donald-MOUAFO.pdf",
+      "size": 315207,
+      "type": "application/pdf",
+      "title": "Resume_Donald-MOUAFO__MLE",
+      "author": "",
+      "creator": "",
+      "producer": "Skia/PDF m149 Google Docs Renderer",
+      "modification_date": "",
+      "creation_date": ""
+    }
+  },
+  "15": {
+    "text": "for nanoelectronics and spintronics . Workshop NACRE, Dec 12-14th Aussois-France. Oral Com m unication Graphene based heterostructure for quantum devices . Chairperson of PhD day, ED-PCP - UDS, 2018 Strasbourg-France. Oral Com m unication Ultra-thin M oSe2 channel Field Effect Transistor . Personal interests Sports European Football - em ployee league at UStrasbourg. Readings Passionate about",
+    "metadata": {
+      "page": 2,
+      "id": 15,
+      "source": "Resume_Donald-MOUAFO.pdf",
+      "size": 315207,
+      "type": "application/pdf",
+      "title": "Resume_Donald-MOUAFO__MLE",
+      "author": "",
+      "creator": "",
+      "producer": "Skia/PDF m149 Google Docs Renderer",
+      "modification_date": "",
+      "creation_date": ""
+    }
+  },
+  "16": {
+    "text": "European Football - em ployee league at UStrasbourg. Readings Passionate about classical literature and the history of quantum theory 2 3",
+    "metadata": {
+      "page": 2,
+      "id": 16,
+      "source": "Resume_Donald-MOUAFO.pdf",
+      "size": 315207,
+      "type": "application/pdf",
+      "title": "Resume_Donald-MOUAFO__MLE",
+      "author": "",
+      "creator": "",
+      "producer": "Skia/PDF m149 Google Docs Renderer",
+      "modification_date": "",
+      "creation_date": ""
+    }
+  }
+}
