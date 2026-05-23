@@ -39,6 +39,7 @@ The installation procedure of `DocumentView` is the following:
 - Install documentView
 ```
   pip install -e .
+```
 
 After installation, the app can be run as follow.
 ```
@@ -49,13 +50,10 @@ After installation, the app can be run as follow.
 The following image is an illustration of the User Interface of DocumentView.
 <p align="center"> 
   <img src="data/images/Screen_capture_of_DocumentView-UI.png" width="900"> 
-  <a>
-   <figcaption align="center">On can see typical discussion with the uploaded document</figcaption>
-  </a>
+  One can see typical discussion with the uploaded document
 </p>
 
 ### Output ####
-```
 ============================================================================================================================================================================
 System : You are a concise assistant. Rely ONLY on the provided context, but you MAY synthesize an answer by combining or paraphrasing the facts present. If the context truly lacks sufficient evidence, say you do not know instead of guessing.
 Context:
@@ -73,5 +71,9 @@ User Question: What happened in Cholima and when ?
 Answer: According to the provided context, approximately 2800 people died in Cholima, Honduras due to severe landslides in 1973.
 ===========================================================================================================================================================================
 ```
-
 This RAG demontration was implemented using `nltk_data/corpora/abc/science.txt` from NLTK python package.
+
+<p align="center"> 
+  <img src="data/images/Screen_capture_of_DocumentView-UI.png" width="900"> 
+  One can see typical discussion with the uploaded document
+</p>
