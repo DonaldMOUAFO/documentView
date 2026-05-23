@@ -32,11 +32,37 @@ def inform_message(message : str):
     with st.container():
         st.markdown(
             f"""
-            <div style=" border-radius: 12px; padding: 30px;
+            <div style=" border-radius: 12px; padding: 20px;
                 background-color: #f5f7fa;
-                text-align: center; border: 1px solid #e0e0e0;
+                text-align: left; border: 1px solid #e0e0e0;
             ">
-                <h1 style="font-size: 18; color: #4CAF50">{message}</h1>
+                <h1 style="font-size: 14px; color: #4CAF50">{message}</h1>
+            </div>
+            """,
+            unsafe_allow_html=True
+        )
+
+def error_message(e, message : str):
+
+    with st.container():
+        st.error(f"The following Error occured when handelling Pdf!\nError : {e}")
+        st.markdown(
+            f"""
+            <div style="
+                padding:20px;
+                border-radius:12px;
+                background:#f9fafc;
+                border:1px solid #e6e6e6;
+            ">
+            <h3 style="margin-top:0;">📄 {message}</h3>
+            <ul>
+                <li style="color:red"><b>Supported formats:</b> PDF (.pdf) or text files (.txt)</li>
+                <li style="color:red"><b>Readable content:</b> Ensure the document contains selectable text</li>
+                <li><b>Clear structure:</b> Headings and paragraphs improve answers</li>
+                <li><b>Relevant content:</b> Upload meaningful information</li>
+                <li><b>Reasonable size:</b> Large files may take longer</li>
+            </ul>
+            <p style="color:#555;"><i>💡 Tip: Better structure = better answers</i></p>
             </div>
             """,
             unsafe_allow_html=True

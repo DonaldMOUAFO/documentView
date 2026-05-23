@@ -1,8 +1,6 @@
 import json
-import streamlit as st
 import numpy as np
-from os import path
-from typing import List, Dict, Tuple, Any
+from typing import Dict
 from sentence_transformers import SentenceTransformer
 from src.infrastructure import config
 from src.interface.streamlit_app import inform_message
@@ -28,7 +26,7 @@ def compute_embeddings(
     ):
 
     if model is None: 
-        model = SentenceTransformer(config.EMBEDINGS_MODEL_NAME) #"sentence-transformers/all-MiniLM-L6-v2"
+        model = SentenceTransformer(config.EMBEDINGS_MODEL_NAME) 
     
     if isinstance(chunks, list) :
         embeddings = model.encode(
@@ -42,7 +40,6 @@ def compute_embeddings(
         embeddings = model.encode(
             chunks, normalize_embeddings=normalize, convert_to_numpy=True
         )
-
         return embeddings
 
     if normalize:
@@ -58,7 +55,7 @@ def compute_embeddings(
 def save_embeddings(embeddings, embs_file_path):
     np.save(embs_file_path, embeddings)
     inform_message(
-        f"mbeddings successfully saved at {embs_file_path}..."
+        f"Embeddings successfully saved at:\n{embs_file_path}..."
     )
 
 def save_meta_data(metadata, metadata_file_path=config.META_DATA_FILE_PATH):

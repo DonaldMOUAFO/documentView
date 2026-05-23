@@ -1,7 +1,5 @@
 import faiss
 import numpy as np
-from os import path
-import streamlit as st
 
 from src.infrastructure import config
 from src.interface.streamlit_app import inform_message
@@ -39,11 +37,11 @@ def save_index(index, index_file_path):
     faiss.write_index(
         index, str(index_file_path)
     )
-    inform_message(f"FAISS index saved to {index_file_path}...")
+    inform_message(f"FAISS index saved to :\n{index_file_path}...")
 
 def load_index(index_path=config.INDEX_FILE_PATH):
     indexes = faiss.read_index(str(index_path))
     inform_message(
-        f"mbeddings successfully saved at {index_path}..."
+        f"FAISS index successfully loaded from :\n{index_path}..."
     )  
     return indexes
