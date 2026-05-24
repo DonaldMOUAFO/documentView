@@ -43,7 +43,7 @@ The installation procedure of `DocumentView` is the following:
 
 After installation, the app can be run as follow.
 ```
-    streamlit run interface/app.py 
+  streamlit run interface/app.py 
 
 ```
 
@@ -72,8 +72,3 @@ Answer: According to the provided context, approximately 2800 people died in Cho
 ===========================================================================================================================================================================
 ```
 This RAG demontration was implemented using `nltk_data/corpora/abc/science.txt` from NLTK python package.
-
-<p align="center"> 
-  <img src="data/images/Screen_capture_of_DocumentView-UI.png" width="900"> 
-  One can see typical discussion with the uploaded document
-</p>

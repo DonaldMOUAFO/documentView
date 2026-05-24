@@ -1,7 +1,7 @@
 import streamlit as st
 from os import path
 from src.infrastructure import config, prompt_engineering
-from src.interface.streamlit_app import app_header, app_header_side
+from src.interface.streamlit_utils import app_header, app_header_side
 from src.domain.document_handler import chunk_text_recursive, load_corpus, load_document, save_corpus
 from src.domain.embeddings import load_model, compute_embeddings, load_embeddings, save_embeddings
 from src.domain.vector_search import build_hnsw_index, load_index, save_index
@@ -44,8 +44,81 @@ with st.sidebar:
             """,
             unsafe_allow_html=True
         )
-        
+
 question = st.chat_input("As any question to your document ...")
+
+if uploaded_file is not None :
+    embs_file_path = config.prepare_file_path(
+        uploaded_file.name, "emb"
+    )
+
+    # To save the chunked text and the metadata in the corpus directory.
+    corpus_file_path = config.prepare_file_path(
+        uploaded_file.name, "corpus"
+    )
+
+    model = load_model(config.EMBEDINGS_MODEL_NAME)
+
+    if path.isfile(embs_file_path) :
+        embeddings = load_embeddings(
+            emb_file_path = embs_file_path
+        )
+        chunked_text, doc_meta = load_corpus(
+            corpus_file_path=corpus_file_path
+        )
+    else :
+        if path.isfile(corpus_file_path) :
+            chunked_text, doc_meta = load_corpus(
+                corpus_file_path=corpus_file_path
+            )
+            
+        else :
+            # Read file as string and extract the text content and the metadata as a dict.
+            text_data_dict, doc_meta = load_document(uploaded_file)  
+
+            # chunked_text is a list of dist. with "text" and "metadata" keys. 
+            # text is a string containing a single chunk.
+            # Metadata is a dict including the following keys which each value is a string
+            # (source, page, chunk_id, type, title, author, creator, producer, modification_date, creation_date).
+            chunked_text, doc_meta = chunk_text_recursive(text_data_dict, doc_meta)
+            save_corpus(doc_meta, corpus_file_path=corpus_file_path)
+
+            embeddings = compute_embeddings(chunks=chunked_text, model=model)
+            save_embeddings(embeddings, embs_file_path)
+        
+    st.session_state.chunked_text = chunked_text
+    st.session_state.doc_meta = doc_meta
+
+    if "index" not in st.session_state :
+        index_file_path = config.prepare_file_path(
+            uploaded_file.name, "index"
+        )
+        
+        if path.isfile(index_file_path) :
+            index = load_index(index_path=index_file_path)
+        else :
+            index = build_hnsw_index(embeddings=embeddings)
+            save_index(index, index_file_path)
+        
+        st.session_state.index = index
+        if "messages" not in st.session_state :
+            text = "Document processing completed successfully...\nYou can now ask any question to your document."
+            
+            with st.container():
+                st.markdown(
+                    f"""
+                    <div style=" border-radius: 12px; padding: 2px;
+                        background-color: #f5f7fa;
+                        text-align: center; border: 1px solid #e0e0e0;
+                    ">
+                        <h1 style="font-size: 21px; color: #4CAF50">📄  {text}</h1>
+                        <p style="font-size: 18px; color: gray;">
+                            Upload a PDF or text file and start asking questions instantly.
+                        </p>
+                    </div>
+                    """,
+                    unsafe_allow_html=True
+                )
 
 while question :
 
@@ -65,64 +138,9 @@ while question :
                 """,
                 unsafe_allow_html=True
             )
+        # stet the question to None to exit the loop.
+        question = None
     else  :
-        embs_file_path = config.prepare_file_path(
-            uploaded_file.name, "emb"
-        )
-        # To save the chunked text and the metadata in the corpus directory.
-        corpus_file_path = config.prepare_file_path(
-            uploaded_file.name, "corpus"
-        )
-
-        model = load_model(config.EMBEDINGS_MODEL_NAME)
-
-        if path.isfile(embs_file_path) :
-            embeddings = load_embeddings(
-                emb_file_path = embs_file_path
-            )
-            chunked_text, doc_meta = load_corpus(
-                corpus_file_path=corpus_file_path
-            )
-        else :
-            if path.isfile(corpus_file_path) :
-                chunked_text, doc_meta = load_corpus(
-                    corpus_file_path=corpus_file_path
-                )
-                
-            else :
-                # Read file as string and extract the text content and the metadata as a dict.
-                text_data_dict, doc_meta = load_document(uploaded_file)  
-
-                # chunked_text is a list of dist. with "text" and "metadata" keys. 
-                # text is a string containing a single chunk.
-                # Metadata is a dict including the following keys which each value is a string
-                # (source, page, chunk_id, type, title, author, creator, producer, modification_date, creation_date).
-                chunked_text, doc_meta = chunk_text_recursive(text_data_dict, doc_meta)
-                save_corpus(doc_meta, corpus_file_path=corpus_file_path)
-
-                embeddings = compute_embeddings(chunks=chunked_text, model=model)
-                save_embeddings(embeddings, embs_file_path)
-
-        st.session_state.chunked_text = chunked_text
-        st.session_state.doc_meta = doc_meta
-
-        if embeddings is None:
-            uploaded_file = None
-            question = None
-            continue
-
-        if "index" not in st.session_state :
-            index_file_path = config.prepare_file_path(
-                uploaded_file.name, "index"
-            )
-            
-            if path.isfile(index_file_path) :
-                index = load_index(index_path=index_file_path)
-            else :
-                index = build_hnsw_index(embeddings=embeddings)
-                save_index(index, index_file_path)
-            
-            st.session_state.index = index
 
         if "messages" not in st.session_state :
             st.session_state.messages = []
@@ -169,9 +187,6 @@ while question :
         with st.chat_message("assistant"):
             st.write( answer )
 
-        question = None 
-
-else : 
-    question = "What happened in Cholima and when ?"
+        question = None # To exit the loop and wait for the next question.
 
 warnings.filterwarnings("ignore")

@@ -2,7 +2,7 @@ import faiss
 import numpy as np
 
 from src.infrastructure import config
-from src.interface.streamlit_app import inform_message
+from src.interface.streamlit_utils import inform_message
 
 def build_hnsw_index(
         embeddings: np.ndarray, 

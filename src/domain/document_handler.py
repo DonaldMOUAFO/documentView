@@ -3,7 +3,7 @@ import json
 import streamlit as st
 from io import StringIO
 from PyPDF2 import PdfReader
-from src.interface.streamlit_app import error_message, inform_message
+from src.interface.streamlit_utils import inform_message
 from langchain_text_splitters import RecursiveCharacterTextSplitter, TokenTextSplitter
 from src.infrastructure import config
 

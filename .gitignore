@@ -12,9 +12,9 @@ data/embedings/
 data/indexes/
 src/interface/api.py
 src/interface/app_test.py
-src/interface/app.py
-src/interface/app_test.py
 src/interface/llm.py
 src/interface/main.py
 src/interface/rag_fast_api.py
 src/interface/retrieval.py
+data/corpus/ENTRETIEN INDIVIDUELcorpus.json
+data/corpus/household_power_consumptioncorpus.json

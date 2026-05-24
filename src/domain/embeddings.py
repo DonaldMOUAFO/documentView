@@ -3,7 +3,7 @@ import numpy as np
 from typing import Dict
 from sentence_transformers import SentenceTransformer
 from src.infrastructure import config
-from src.interface.streamlit_app import inform_message
+from src.interface.streamlit_utils import inform_message
 
 def load_model(model_name: str) -> SentenceTransformer:
     """
@@ -97,4 +97,3 @@ def top_k_similar(query_emb, emb_matrix, texts, metadata,
     #return #idx, sims[idx]
 
     return results
-
