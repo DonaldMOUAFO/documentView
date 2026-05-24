@@ -159,10 +159,9 @@ def _apply_style(answer, style, cited_sentences):
         return "\n" + "\n".join(f"- {s}" for s in cited_sentences)
     return answer
 
-
 def rag_response_generation(
-        prompt, top_k_text, metadata, embeddings, model, 
-        style="paragraph", llm_model_name="llama3"):
+    prompt, top_k_text, metadata, embeddings, model, 
+    style="paragraph", llm_model_name="llama3"):
     
     #if any(pat in q_lower for pat in SYNTHESIZING_SYSTEM_PROMPT) :
     allow_synthesis = False

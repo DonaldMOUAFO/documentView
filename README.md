@@ -45,11 +45,14 @@ After installation, the app can be run as follow.
 ```
   streamlit run src/application/app.py 
 ```
-
+### Typical UI for DocumentView and example discussion
 The following image is an illustration of the User Interface of DocumentView.
 <p align="center"> 
-  <img src="data/images/Screen_capture_of_DocumentView-UI.png" width="900"> 
-  One can see typical discussion with the uploaded document
+  <img src="data/images/Screen_capture_of_DocumentView-UI.png" width="900">
+  <p style="font-size: 18px; color: gray; text-align: center">
+    One can see typical discussion with the uploaded document.
+  </p> 
+  <!---<li style="color:red"; "text-align: center" ><b>One can see typical discussion with the uploaded document. </li> --->
 </p>
 
 <!---
