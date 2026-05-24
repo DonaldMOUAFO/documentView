@@ -43,8 +43,7 @@ The installation procedure of `DocumentView` is the following:
 
 After installation, the app can be run as follow.
 ```
-  streamlit run interface/app.py 
-
+  streamlit run src/application/app.py 
 ```
 
 The following image is an illustration of the User Interface of DocumentView.
