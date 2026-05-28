@@ -2,18 +2,23 @@
 The documentView API enables semantic search and question answering over documents using a Retrieval-Augmented Generation (RAG) pipeline. 
 The purpose of RAG is to specialize an Large Language Model on a particular dataset corpus without complex retraining effort.
 
-To summarized, A RAG process consistes of four steps :
+To summarized, a RAG process consistes of five steps :
 - Load the document a extract the corpus
 The first step consistes of extracting the textual content of the doccument from it original medium (either Pdf, web page, or .txt doc). 
 
-- Chunked the document into a serie of chunks 
+- Chunked the document into a serie of overlaping shorter portion
 This step consistes of dividing the entire document into a number of smaller chunks
 
-- Embeddings and indexing
+- Vector base :Embeddings and indexing
 This step consiste of converting each document chunk into a vector (embedings) using a LLM. Then indexing the embeddings to associated each with appropriate index which enables also to uniquely identify the corresponding chunk. Then ensemble of chunked document, embeddings and indexes correspond to the vector database of the corpus text.
 
-- Retreival and generation
-The last step consiste of retreiving information from the document through retreival and generation process. This means, when a user as question, the question is converted to a vector using the same LLM that was used to generate embeddings of the corpus text. The question's embadding is then use to conduct similarity search to vector database, the top k most similar chunk are the retreived. Finaly both the question and the top k chunked are used to build the prompt to send to the LLM for LLM to generate the final answer that is send back to the user.
+- Retrial and chat (user question) processing
+The last step consiste of retreiving information from the document through retreival and generation process. This means, when a user as question, the question is converted to a vector using the same LLM that was used to generate embeddings of the corpus text. The question's embadding is then use to conduct similarity search to vector database, the top k most similar chunk are the retreived.
+
+- Prompt engineering and generation 
+ Finaly both the question and the top k chunked are used to build the prompt to send to the LLM to generate the final answer that is send back to the user.
+
+In section, I provide details of technical and scientific implementation of documentview.
 
 # 1. Quit start
 
@@ -38,13 +43,24 @@ The installation procedure of `DocumentView` is the following:
 ```
 - Install documentView
 ```
-  pip install -e .
+  pip install .
 ```
-
+If you want to edit the code, do not hesitate to install the package in editable mode `pip install -e .`
 After installation, the app can be run as follow.
 ```
   streamlit run src/application/app.py 
 ```
+#### Work with `documentview`
+After running the previous code, the UI interface can be access at the address [http://localhost:8501]. 
+The UI of documentview looks as follows.
+<p align="center"> 
+  <img src="data/images/scren_shot_UI.png" width="900">
+  <p style="font-size: 18px; color: gray; text-align: center">
+    Documentview user interface.
+  </p> 
+</p>
+The user can upload a document to start interacting with.The actual document handel are `Pdf` and `txt`.
+
 ### Typical UI for DocumentView and example discussion
 The following image is an illustration of the User Interface of DocumentView.
 <p align="center"> 
@@ -55,23 +71,91 @@ The following image is an illustration of the User Interface of DocumentView.
   <!---<li style="color:red"; "text-align: center" ><b>One can see typical discussion with the uploaded document. </li> --->
 </p>
 
-<!---
-  ### Output ####
-  ============================================================================================================================================================================
-  System : You are a concise assistant. Rely ONLY on the provided context, but you MAY synthesize an answer by combining or paraphrasing the facts present. If the context truly lacks sufficient evidence, say you do not know instead of guessing.
-  Context:
-  Kyoto University and UNESCO. Among severe landslides, about 2800 died in Cholima in Honduras in 1973 and almost 1200 in northern Italy in 1963. The Louvain University database on which the figures
+# 2. Deploiement from docker container
+To run documentview in a server, docker deployement is recommanded.
 
-  the population of European Jews, which exploded from 30,000 people in the 13th century to something like 9 million just prior to World War II, Behar says. The Nazis and their allies killed 6 million
+## 2.1 Docker image and container registery
 
-  officer of the UN University. A report released at the time of the meeting says some cultural sites are at risk from landslides, including the Valley of the Kings where Egypts Pharaohs are buried,
+After pulling the repository from the server or what ever computer.
+```
+  docker compose down
+  docker compose up -d
+  docker exec -it ollama-server ollama pull llama3
+```
+Documentview is accessible at [http://localhost:8501].
 
-  Kings where Egypts Pharaohs are buried, the Inca mountain fortress of Machu Picchu in Peru and Chinas Huaqing Palace dating from the Tang dynasty. Special attention should be given to cultural and
+## 2.2 Docker deploiement from setup.sh
+On simple way is to download `setup.sh` on your local computer and excute it as follow.
+``` 
+  ./setup.sh
+```
+You can also override the model at runtime without editing the script:
+```
+  OLLAMA_MODEL=mistral ./setup.sh
+```
+## 2.3 On windows deskpot or server
 
-  when the ancestral Eve of all living humans lived in Africa, about 180,000 years ago. Now they have found four ancestral Jewish mothers. I think there was some kind of genetic pool that was in the
+  ### 2.3.1 Installation with setup.ps1
+    Windows requires a different approach since it doesn't have bash natively. The equivalent is a PowerShell. The corresponding script is `setup.ps1`.
+    To run it, first open PowerShell as Administrator and execute the following code.
+    ```
+      Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+      .\setup.ps1
+    ```
+    Similarly, to use a different model :
+    ```
+      $env:OLLAMA_MODEL="mistral"; .\setup.ps1
+    ```
+  ### 2.3.1 Installation with setup.bat
+    More simply, download `setup.bat` file and place it anywhere on the Windows machine and **double-click** on it. 
+    Here's what the user's experience looks like:
+    ```
+      ****************************************************
+      *                                                  *
+      *        DocumentView  --  Installer               *
+      *                                                  *
+      ****************************************************
 
-  User Question: What happened in Cholima and when ?
-  Answer: According to the provided context, approximately 2800 people died in Cholima, Honduras due to severe landslides in 1973.
-  ==============================================================================================================================================================
-  This RAG demontration was implemented using `nltk_data/corpora/abc/science.txt` from NLTK python package.
--->
+      [INFO]   Checking required tools...
+      [OK]     All tools are available.
+      [INFO]   Cloning repository...
+      [OK]     Repository ready.
+      [INFO]   Building Docker images (this may take a few minutes)...
+      [OK]     Containers are running.
+      [INFO]   Waiting for Ollama to be ready...
+      [OK]     Ollama is ready.
+      [INFO]   Pulling model 'llama3'...
+      [OK]     Model 'llama3' ready.
+      [INFO]   Opening the app in your browser...
+
+        Streamlit app  >  http://localhost:8501
+        ...
+
+      Press any key to continue . . .
+    ```
+
+# 3. Scientific and technical description of documentview
+
+Documentview is composed of five main components :
+- Document handeling
+- Document cleaning and chunking
+- Embedings generation and indexing for vector based building 
+- Retrial and chat (user question) processing
+- Promt engineering and generation 
+
+  ## 3.1 Document handeling
+   #### To do
+  
+  ## 3.2 Document cleaning and chunking
+   #### To do
+
+  ## 3.3 Vector based building : Embedings generation and indexing
+   #### To do
+  
+  ## 3.4 Retrial and chat (user question) processing
+  # The notion of reranking
+   #### To do 
+  
+  ## 3.5 Promt engineering and generation
+  # The notion of reranking
+   #### To do

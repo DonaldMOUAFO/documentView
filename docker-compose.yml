@@ -1,0 +1,84 @@
+# the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion
+# version: "3.9"
+
+# =========================================================
+# Docker Compose configuration
+# =========================================================
+# Services:
+# - ollama       -> Local LLM server
+# - documentview -> Your application (Streamlit app ?)
+#
+# Network:
+# - Shared internal bridge network for communication
+# =========================================================
+
+services:
+
+  # =======================================================
+  # Ollama Service
+  # =======================================================
+  # Hosts local LLM models and exposes the API on port 11434
+  # =======================================================
+  ollama:
+    image: ollama/ollama:latest
+    container_name: ollama-server
+
+    ports:
+      - "11435:11434"
+
+    # Persist downloaded models between container restarts
+    volumes:
+      - ollama-data:/root/.ollama
+
+    networks:
+      - llm-network
+
+    restart: unless-stopped
+
+    dns:
+      - 8.8.8.8
+      - 1.1.1.1
+
+
+  # =======================================================
+  # DocumentView Application
+  # =======================================================
+  # Your frontend/backend application
+  # Accessible on http://localhost:8501
+  # =======================================================
+  documentview:
+    build: 
+      context: .
+
+    container_name: documentview
+
+    ports:
+      - "8501:8501"
+
+    # Wait for ollama service to start first
+    depends_on:
+      - ollama
+
+    networks:
+      - llm-network
+
+    # Environment variables available inside the container
+    environment:
+      OLLAMA_BASE_URL: http://ollama:11434
+
+    restart: unless-stopped
+
+# =========================================================
+# Shared Docker Network
+# =========================================================
+networks:
+  llm-network:
+    name: llm-network
+    driver: bridge
+
+# =========================================================
+# Persistent Volumes
+# =========================================================
+volumes:
+  ollama-data:
+    name: ollama-data

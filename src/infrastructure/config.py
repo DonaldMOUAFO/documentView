@@ -1,18 +1,25 @@
 import streamlit as st
-from os import path, getenv, makedirs
+from os import getenv
+from pathlib import Path
 
-PRESENT_DIR = path.dirname(path.realpath(__file__)) 
+BASE_DIR = Path(getenv("DATA_DIR", Path.cwd() / "data"))
+BASE_DIR.mkdir(parents=True, exist_ok=True)
 
-CORPUS_DIR = path.join(PRESENT_DIR, "../../data/corpus")
-OUTPUT_DIR = path.join(PRESENT_DIR, "../../data/output")
-INDEXES_DIR =  path.join(PRESENT_DIR, "../../data/indexes")
-EMBEDINGS_DIR = path.join(PRESENT_DIR, "../../data/embedings")
+CORPUS_DIR = BASE_DIR / "corpus"
+OUTPUT_DIR = BASE_DIR / "output"
+INDEXES_DIR = BASE_DIR / "indexes"
+EMBEDINGS_DIR = BASE_DIR / "embeddings"
 
-CORPUS_FILE_PATH = path.join(PRESENT_DIR, "../../data/corpus/corpus.txt")
-EMBEDINGS_FILE_PATH = path.join(EMBEDINGS_DIR, "embeddings.npy")
-META_DATA_FILE_PATH = path.join(EMBEDINGS_DIR, "meta_data.json")
+for d in [CORPUS_DIR, OUTPUT_DIR, INDEXES_DIR, EMBEDINGS_DIR]:
+    # Create the directory if it doesn't exist
+    # The parents=True argument allows the creation of parent directories if they don't exist,
+    # and exist_ok=True prevents an error if the directory already exists.
+    d.mkdir(parents=True, exist_ok=True)
 
-INDEX_FILE_PATH = path.join(EMBEDINGS_DIR, "faiss_hnsw.index")
+CORPUS_FILE_PATH = CORPUS_DIR / "corpus.txt"
+EMBEDINGS_FILE_PATH = EMBEDINGS_DIR / "embeddings.npy"
+META_DATA_FILE_PATH = EMBEDINGS_DIR / "meta_data.json"
+INDEX_FILE_PATH = EMBEDINGS_DIR / "faiss_hnsw.index"
 
 #EMBEDINGS_MODEL_NAME = "sentence-transformers/all-MiniLM-L6-v2"
 EMBEDINGS_MODEL_NAME = "sentence-transformers/all-mpnet-base-v2"
@@ -21,25 +28,19 @@ DEFAULT_TOP_K = 5
 SIM_THRESHOLD = 0.35 # not used in this lesson, but fine to keep
 
 OLLAMA_BASE_URL = getenv("OLLAMA_BASE_URL", "http://localhost:11434")
-OLLAMA_API_URL = f"{OLLAMA_BASE_URL}/api/generate"
+OLLAMA_API_URL  = f"{OLLAMA_BASE_URL}/api/generate"
 OLLAME_TAGS_URL = f"{OLLAMA_BASE_URL}/api/tags"
 
-for dir in [ CORPUS_DIR, OUTPUT_DIR, INDEXES_DIR, EMBEDINGS_DIR ] :
-    if not path.isdir(dir):
-        makedirs(dir)
+FILE_CONFIG = {
+    "index": (INDEXES_DIR, ".index"),
+    "emb": (EMBEDINGS_DIR, ".npy"),
+    "corpus": (CORPUS_DIR, ".json"),
+}
 
-def prepare_file_path(file_name, object="emb"):
-    root, _ = path.splitext(file_name) 
-    if object == "index":
-        file_name = root + ".index"
-        return path.join(INDEXES_DIR, file_name)
-    elif object == "emb" :
-        file_name = root + "emb.npy"
-        return path.join(EMBEDINGS_DIR, file_name)
-    elif object == "corpus" :
-        file_name = root + "corpus.json"
-        return path.join(CORPUS_DIR, file_name)
-    else :
-        st.error(
-            st.error(f"The object {object} does not correspond to any of the list ['emb', 'index', 'corpus']")
-        )
+def prepare_file_path(file_name: str, file_type: str = "emb"):
+    try:
+        base_dir, suffix = FILE_CONFIG[file_type]
+    except KeyError:
+        raise ValueError(f"Unknown file_type: {file_type}")
+    
+    return Path(base_dir) / f"{Path(file_name).stem}{suffix}"       

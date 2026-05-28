@@ -81,10 +81,11 @@ if uploaded_file is not None :
             # Metadata is a dict including the following keys which each value is a string
             # (source, page, chunk_id, type, title, author, creator, producer, modification_date, creation_date).
             chunked_text, doc_meta = chunk_text_recursive(text_data_dict, doc_meta)
-            save_corpus(doc_meta, corpus_file_path=corpus_file_path)
+            # save_corpus(doc_meta, corpus_file_path=corpus_file_path)
 
-            embeddings = compute_embeddings(chunks=chunked_text, model=model)
-            save_embeddings(embeddings, embs_file_path)
+        embeddings = compute_embeddings(chunks=chunked_text, model=model)
+    save_corpus(doc_meta, corpus_file_path=corpus_file_path)
+    save_embeddings(embeddings, embs_file_path)
         
     st.session_state.chunked_text = chunked_text
     st.session_state.doc_meta = doc_meta

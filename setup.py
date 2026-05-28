@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(
-    name        = "documentView",
+    name        = "documentview",
     url         = "https://github.com/DonaldMOUAFO/documentView.git",
     author      = "Donald MOUAFO, donald.l.mouafo@gmail.com",
     description = """documentView API enables semantic search and question answering over documents 
