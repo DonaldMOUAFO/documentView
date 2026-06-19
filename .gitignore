@@ -23,3 +23,5 @@ data/corpus/household_power_consumptioncorpus.json
 
 # Docker
 Dockerfile_v1
+
+.api_key

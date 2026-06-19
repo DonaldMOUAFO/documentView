@@ -44,10 +44,11 @@ def chunk_text_recursive(raw_text, meta_data=None):
         If the raw_test originate from a txt file, the page key will be set to 1 that is len(raw_text) = 1.
       chunk_size (int): The maximum size of each chunk (default: 400 characters).
       overlap (int): The number of overlapping characters between chunks (default: 80 characters).
+
     Returns:
       list of dict: A list of chunked text segments.
     """
-    test = []
+    corpus = []
     doc_data = {}
 
     for page in raw_text:
@@ -58,13 +59,13 @@ def chunk_text_recursive(raw_text, meta_data=None):
         chunked_text = recursive_chunk(text)
 
         for chunk_text in chunked_text:
-            test.append(chunk_text)
+            corpus.append(chunk_text)
 
-            doc_data[len(test)] = {     #{"id": f"p{idx:02d}"
+            doc_data[len(corpus)] = {     #{"id": f"p{idx:02d}"
                 "text": chunk_text,
                 "metadata": {
                     "page": page_num,
-                    "id": len(test),
+                    "id": len(corpus),
                     "source": meta_data.get("source", "unknown") if meta_data else "unknown",
                     "size": meta_data.get("size", "unknown") if meta_data else "unknown",
                     "type": meta_data.get("type", "unknown") if meta_data else "unknown",
@@ -76,7 +77,7 @@ def chunk_text_recursive(raw_text, meta_data=None):
                     "creation_date": meta_data.get("creation_date", "unknown") if meta_data else "unknown",
                 }
             }
-    return test, doc_data
+    return corpus, doc_data
 
 def save_corpus(doc_data, corpus_file_path=config.CORPUS_FILE_PATH):
     json.dump(
@@ -84,9 +85,9 @@ def save_corpus(doc_data, corpus_file_path=config.CORPUS_FILE_PATH):
         open(corpus_file_path, "w", encoding="utf-8"), 
         indent=2
     )
-    inform_message(
-        f"Corpus successfully saved at:\n{corpus_file_path}..."
-    )
+    # inform_message(
+    #     f"Corpus successfully saved at:\n{corpus_file_path}..."
+    # )
 
 def load_corpus(corpus_file_path=config.CORPUS_FILE_PATH):
     with open(corpus_file_path, "r", encoding="utf-8") as f:

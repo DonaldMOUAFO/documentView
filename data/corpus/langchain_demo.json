@@ -1,0 +1,178 @@
+{
+  "1": {
+    "text": "LangChain Document Loaders - Demo Document Understanding LangChain Document Loaders 1. Introduction LangChain provides powerful document loaders that allow you to ingest data from various sources into your LLM applications. Document loaders are essential for building RAG (Retrieval-Augmented Generation) systems, chatbots, and knowledge bases. This document serves as a demo file to test PDF loading",
+    "metadata": {
+      "page": 1,
+      "id": 1,
+      "source": "langchain_demo.pdf",
+      "size": 4570,
+      "type": "application/pdf",
+      "title": "",
+      "author": "",
+      "creator": "",
+      "producer": "",
+      "modification_date": "",
+      "creation_date": "D:20260202214508Z"
+    }
+  },
+  "2": {
+    "text": "and knowledge bases. This document serves as a demo file to test PDF loading capabilities in LangChain. When loaded, this content will be split into chunks and can be used for vector storage and retrieval. 2. Types of Document Loaders PyPDFLoader Load PDF files page by page with metadata TextLoader Load plain text files (.txt) CSVLoader Load CSV files with row-based documents JSONLoader Load JSON",
+    "metadata": {
+      "page": 1,
+      "id": 2,
+      "source": "langchain_demo.pdf",
+      "size": 4570,
+      "type": "application/pdf",
+      "title": "",
+      "author": "",
+      "creator": "",
+      "producer": "",
+      "modification_date": "",
+      "creation_date": "D:20260202214508Z"
+    }
+  },
+  "3": {
+    "text": "(.txt) CSVLoader Load CSV files with row-based documents JSONLoader Load JSON files with jq-style extraction UnstructuredLoader Handle various file formats automatically DirectoryLoader Load all files from a directory WebBaseLoader Scrape and load web pages YouTubeLoader Extract transcripts from YouTube videos 3. Code Example Loading a PDF from langchain_community.document_loaders import",
+    "metadata": {
+      "page": 1,
+      "id": 3,
+      "source": "langchain_demo.pdf",
+      "size": 4570,
+      "type": "application/pdf",
+      "title": "",
+      "author": "",
+      "creator": "",
+      "producer": "",
+      "modification_date": "",
+      "creation_date": "D:20260202214508Z"
+    }
+  },
+  "4": {
+    "text": "3. Code Example Loading a PDF from langchain_community.document_loaders import PyPDFLoader Initialize the loader loader PyPDFLoader(docslangchain_demo.pdf) Load the document documents loader.load() Each document has page_content and metadata for doc in documents print(fPage doc.metadatapage) print(fContent doc.page_content100...) 3",
+    "metadata": {
+      "page": 1,
+      "id": 4,
+      "source": "langchain_demo.pdf",
+      "size": 4570,
+      "type": "application/pdf",
+      "title": "",
+      "author": "",
+      "creator": "",
+      "producer": "",
+      "modification_date": "",
+      "creation_date": "D:20260202214508Z"
+    }
+  },
+  "5": {
+    "text": "LangChain Document Loaders - Demo Document 4. Best Practices When working with document loaders, consider these best practices 1. Text Splitting After loading, split documents into smaller chunks using RecursiveCharacterTextSplitter for better retrieval performance. 2. Metadata Preservation Loaders preserve metadata like page numbers, file paths, and sources. Use this information for citations. 3.",
+    "metadata": {
+      "page": 2,
+      "id": 5,
+      "source": "langchain_demo.pdf",
+      "size": 4570,
+      "type": "application/pdf",
+      "title": "",
+      "author": "",
+      "creator": "",
+      "producer": "",
+      "modification_date": "",
+      "creation_date": "D:20260202214508Z"
+    }
+  },
+  "6": {
+    "text": "page numbers, file paths, and sources. Use this information for citations. 3. Error Handling Implement proper error handling for corrupted files or network issues when loading from URLs. 4. Batch Processing For large document sets, use lazy_load() instead of load() to process documents one at a time. 5. Preprocessing Clean and normalize text after loading to improve embedding quality. 5. Sample",
+    "metadata": {
+      "page": 2,
+      "id": 6,
+      "source": "langchain_demo.pdf",
+      "size": 4570,
+      "type": "application/pdf",
+      "title": "",
+      "author": "",
+      "creator": "",
+      "producer": "",
+      "modification_date": "",
+      "creation_date": "D:20260202214508Z"
+    }
+  },
+  "7": {
+    "text": "Clean and normalize text after loading to improve embedding quality. 5. Sample Data for Testing Below is sample content that can be used to test chunking and retrieval The quick brown fox jumps over the lazy dog. This sentence contains every letter of the alphabet and is commonly used for testing. LangChain was created to simplify the development of LLM-powered applications. It provides modular",
+    "metadata": {
+      "page": 2,
+      "id": 7,
+      "source": "langchain_demo.pdf",
+      "size": 4570,
+      "type": "application/pdf",
+      "title": "",
+      "author": "",
+      "creator": "",
+      "producer": "",
+      "modification_date": "",
+      "creation_date": "D:20260202214508Z"
+    }
+  },
+  "8": {
+    "text": "to simplify the development of LLM-powered applications. It provides modular components for building chains, agents, and retrieval systems. Key features include - Prompt templates for structured inputs - Output parsers for structured outputs - Chains for sequential operations - Agents for autonomous decision-making - Memory for conversation context - Vector stores for semantic search 6.",
+    "metadata": {
+      "page": 2,
+      "id": 8,
+      "source": "langchain_demo.pdf",
+      "size": 4570,
+      "type": "application/pdf",
+      "title": "",
+      "author": "",
+      "creator": "",
+      "producer": "",
+      "modification_date": "",
+      "creation_date": "D:20260202214508Z"
+    }
+  },
+  "9": {
+    "text": "- Memory for conversation context - Vector stores for semantic search 6. Conclusion Document loaders are the entry point for any LangChain application that needs to work with external data. By understanding the different loader types and best practices, you can build robust RAG systems that effectively retrieve and utilize information from diverse sources. This demo PDF file demonstrates how",
+    "metadata": {
+      "page": 2,
+      "id": 9,
+      "source": "langchain_demo.pdf",
+      "size": 4570,
+      "type": "application/pdf",
+      "title": "",
+      "author": "",
+      "creator": "",
+      "producer": "",
+      "modification_date": "",
+      "creation_date": "D:20260202214508Z"
+    }
+  },
+  "10": {
+    "text": "utilize information from diverse sources. This demo PDF file demonstrates how content is structured across multiple pages, includes various text 3",
+    "metadata": {
+      "page": 2,
+      "id": 10,
+      "source": "langchain_demo.pdf",
+      "size": 4570,
+      "type": "application/pdf",
+      "title": "",
+      "author": "",
+      "creator": "",
+      "producer": "",
+      "modification_date": "",
+      "creation_date": "D:20260202214508Z"
+    }
+  },
+  "11": {
+    "text": "LangChain Document Loaders - Demo Document formatting, and provides realistic content for testing your LangChain document loading pipelines. 3",
+    "metadata": {
+      "page": 3,
+      "id": 11,
+      "source": "langchain_demo.pdf",
+      "size": 4570,
+      "type": "application/pdf",
+      "title": "",
+      "author": "",
+      "creator": "",
+      "producer": "",
+      "modification_date": "",
+      "creation_date": "D:20260202214508Z"
+    }
+  }
+}

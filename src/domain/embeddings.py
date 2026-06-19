@@ -36,27 +36,38 @@ def compute_embeddings(
             convert_to_numpy=True,
             show_progress_bar=True,
         )
+
+        if normalize:
+            try :
+                norms = np.linalg.norm(embeddings, axis=1, keepdims=True)
+                norms[norms == 0] = 1.0
+                embeddings = embeddings / norms 
+
+            except Exception as e :
+                # st.error(f" Error reading Pdf : {e}\nMake you document fulfill the requirements")
+                embeddings = None
+
     else :
         embeddings = model.encode(
             chunks, normalize_embeddings=normalize, convert_to_numpy=True
         )
-        return embeddings
+        # return embeddings
 
-    if normalize:
-        try :
-            norms = np.linalg.norm(embeddings, axis=1, keepdims=True)
-            norms[norms == 0] = 1.0
-            embeddings = embeddings / norms 
-        except Exception as e :
-            # st.error(f" Error reading Pdf : {e}\nMake you document fulfill the requirements")
-            embeddings = None
+    # if normalize:
+    #     try :
+    #         norms = np.linalg.norm(embeddings, axis=1, keepdims=True)
+    #         norms[norms == 0] = 1.0
+    #         embeddings = embeddings / norms 
+    #     except Exception as e :
+    #         # st.error(f" Error reading Pdf : {e}\nMake you document fulfill the requirements")
+    #         embeddings = None
     return embeddings
 
 def save_embeddings(embeddings, embs_file_path):
     np.save(embs_file_path, embeddings)
-    inform_message(
-        f"Embeddings successfully saved at:\n{embs_file_path}..."
-    )
+    # inform_message(
+    #     f"Embeddings successfully saved at:\n{embs_file_path}..."
+    # )
 
 def save_meta_data(metadata, metadata_file_path=config.META_DATA_FILE_PATH):
     json.dump(metadata, open(metadata_file_path, "w", encoding="utf-8"), indent=2)

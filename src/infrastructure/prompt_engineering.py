@@ -4,6 +4,7 @@ import requests
 import numpy as np
 from ollama import Client
 from htbuilder import div, pre, b, span
+from src.interface.streamlit_utils import inform_message
 from src.infrastructure import config
 
 client = Client(host=config.OLLAMA_BASE_URL)
@@ -111,11 +112,31 @@ def generation_chat_response(model:str, prompt):
     #     model = model,
     #     messages = [{"role":"user", "content":prompt}]
     # )
+    try :
+        res = client.chat(
+            model=model,
+            messages=[{"role":"user", "content":prompt}]
+        )
+    except Exception as e:       
+     
+        if isinstance(e, ConnectionError) :
 
-    res = client.chat(
-        model=model,
-        messages=[{"role":"user", "content":prompt}]
-    )
+            inform_message(
+                f"The Ollama server is not running...\n Run the Ollama server with the comman `ollama serve`",
+                type='warning'
+            )
+
+        else :
+            inform_message(
+                f"The following error occured:\n {e}",
+                type='warning'
+            )
+
+        res = {
+            "message" : {
+                "content" : f"Availability of ollama server : {ollama_available()}"
+            }
+        }
 
     # {"model":"llama3",
     #  "created_at":"2026-04-27T10:32:05.764087178Z",
@@ -136,6 +157,7 @@ def generation_chat_response(model:str, prompt):
     # }
     #prompt["Answer"] = res["message"]["content"]
     return res["message"]["content"]
+   
 
 def _sentence_split(text:str) -> list[str] :
     """Splits text into sentences using regrex"""

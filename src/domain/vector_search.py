@@ -37,11 +37,16 @@ def save_index(index, index_file_path):
     faiss.write_index(
         index, str(index_file_path)
     )
-    inform_message(f"FAISS index saved to :\n{index_file_path}...")
+    # inform_message(f"FAISS index saved to :\n{index_file_path}...")
 
 def load_index(index_path=config.INDEX_FILE_PATH):
     indexes = faiss.read_index(str(index_path))
-    inform_message(
-        f"FAISS index successfully loaded from :\n{index_path}..."
-    )  
+    # inform_message(
+    #     f"FAISS index successfully loaded from :\n{index_path}..."
+    # )  
     return indexes
+
+################################################################################
+# TO DO :
+# Implement vector data base or vector store using Chroma and FAISS
+#################################################################################

@@ -41,6 +41,11 @@ The installation procedure of `DocumentView` is the following:
 ```
   pip install -r requirement.txt
 ```
+- Run Ollama server
+Before to run documentview, runs ollama first to make embedding models available for api call
+```
+  ollama serve
+```
 - Install documentView
 ```
   pip install .
@@ -95,44 +100,43 @@ You can also override the model at runtime without editing the script:
 ```
 ## 2.3 On windows deskpot or server
 
-  ### 2.3.1 Installation with setup.ps1
-    Windows requires a different approach since it doesn't have bash natively. The equivalent is a PowerShell. The corresponding script is `setup.ps1`.
-    To run it, first open PowerShell as Administrator and execute the following code.
-    ```
-      Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
-      .\setup.ps1
-    ```
-    Similarly, to use a different model :
-    ```
-      $env:OLLAMA_MODEL="mistral"; .\setup.ps1
-    ```
-  ### 2.3.1 Installation with setup.bat
-    More simply, download `setup.bat` file and place it anywhere on the Windows machine and **double-click** on it. 
-    Here's what the user's experience looks like:
-    ```
-      ****************************************************
-      *                                                  *
-      *        DocumentView  --  Installer               *
-      *                                                  *
-      ****************************************************
+### 2.3.1 Installation with setup.ps1
+  Windows requires a different approach since it doesn't have bash natively. The equivalent is a PowerShell. The corresponding script is `setup.ps1`.
+  To run it, first open PowerShell as Administrator and execute the following code.
+  ```
+    Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+    .\setup.ps1
+  ```
+  Similarly, to use a different model :
+  ```
+    $env:OLLAMA_MODEL="mistral"; .\setup.ps1
+  ```
+### 2.3.1 Installation with setup.bat
+  More simply, download `setup.bat` file and place it anywhere on the Windows machine and **double-click** on it. 
+  Here's what the user's experience looks like:
+  ```
+    ****************************************************
+    *                                                  *
+    *        DocumentView  --  Installer               *
+    *                                                  *
+    ****************************************************
 
-      [INFO]   Checking required tools...
-      [OK]     All tools are available.
-      [INFO]   Cloning repository...
-      [OK]     Repository ready.
-      [INFO]   Building Docker images (this may take a few minutes)...
-      [OK]     Containers are running.
-      [INFO]   Waiting for Ollama to be ready...
-      [OK]     Ollama is ready.
-      [INFO]   Pulling model 'llama3'...
-      [OK]     Model 'llama3' ready.
-      [INFO]   Opening the app in your browser...
+    [INFO]   Checking required tools...
+    [OK]     All tools are available.
+    [INFO]   Cloning repository...
+    [OK]     Repository ready.
+    [INFO]   Building Docker images (this may take a few minutes)...
+    [OK]     Containers are running.
+    [INFO]   Waiting for Ollama to be ready...
+    [OK]     Ollama is ready.
+    [INFO]   Pulling model 'llama3'...
+    [OK]     Model 'llama3' ready.
+    [INFO]   Opening the app in your browser...
 
-        Streamlit app  >  http://localhost:8501
-        ...
-
-      Press any key to continue . . .
-    ```
+      Streamlit app  >  http://localhost:8501
+      ...
+    Press any key to continue . . .
+  ```
 
 # 3. Scientific and technical description of documentview
 
@@ -144,18 +148,17 @@ Documentview is composed of five main components :
 - Promt engineering and generation 
 
   ## 3.1 Document handeling
-   #### To do
+  #### To do
   
   ## 3.2 Document cleaning and chunking
-   #### To do
+  #### To do
 
   ## 3.3 Vector based building : Embedings generation and indexing
-   #### To do
+  #### To do
   
   ## 3.4 Retrial and chat (user question) processing
-  # The notion of reranking
-   #### To do 
+  The notion of reranking
+  #### To do 
   
   ## 3.5 Promt engineering and generation
-  # The notion of reranking
-   #### To do
+  #### To do

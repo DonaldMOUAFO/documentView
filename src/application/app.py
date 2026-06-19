@@ -7,6 +7,7 @@ from src.domain.embeddings import load_model, compute_embeddings, load_embedding
 from src.domain.vector_search import build_hnsw_index, load_index, save_index
 import warnings
 
+# Header of the frontend app
 app_header()
 st.markdown(
     "#### :blue[:material/local_library:]*Questionne your document ...*<br> ", 
@@ -14,6 +15,7 @@ st.markdown(
     text_alignment="right"
 )
 
+# Side bar of the application
 with st.sidebar:
     app_header_side(
         "The easiest way to ask question to your document..."
@@ -48,17 +50,21 @@ with st.sidebar:
 question = st.chat_input("As any question to your document ...")
 
 if uploaded_file is not None :
+    # Prepare the file path to save the embeddings of the documents if it its the first time loading such 
+    # or retriving it for data base if it has been loaded in the pass. 
     embs_file_path = config.prepare_file_path(
         uploaded_file.name, "emb"
     )
 
-    # To save the chunked text and the metadata in the corpus directory.
+    # Prepare the file path to save the chunked text and the metadata in the corpus directory.
     corpus_file_path = config.prepare_file_path(
         uploaded_file.name, "corpus"
     )
-
+    
+    # Load the embeddings models in this case "sentence-transformers/all-mpnet-base-v2"
     model = load_model(config.EMBEDINGS_MODEL_NAME)
-
+     
+    # Load embedings and corresponfing chunked of the documents if existing else generate them.  
     if path.isfile(embs_file_path) :
         embeddings = load_embeddings(
             emb_file_path = embs_file_path
@@ -73,7 +79,7 @@ if uploaded_file is not None :
             )
             
         else :
-            # Read file as string and extract the text content and the metadata as a dict.
+            # Read the file as string and extract the text content and the metadata as a dict.
             text_data_dict, doc_meta = load_document(uploaded_file)  
 
             # chunked_text is a list of dist. with "text" and "metadata" keys. 
@@ -81,9 +87,9 @@ if uploaded_file is not None :
             # Metadata is a dict including the following keys which each value is a string
             # (source, page, chunk_id, type, title, author, creator, producer, modification_date, creation_date).
             chunked_text, doc_meta = chunk_text_recursive(text_data_dict, doc_meta)
-            # save_corpus(doc_meta, corpus_file_path=corpus_file_path)
 
         embeddings = compute_embeddings(chunks=chunked_text, model=model)
+
     save_corpus(doc_meta, corpus_file_path=corpus_file_path)
     save_embeddings(embeddings, embs_file_path)
         
@@ -185,7 +191,7 @@ while question :
         st.session_state.messages.append(
             {"role":"assistant", "content": answer } 
         )
-        with st.chat_message("assistant"):
+        with st.chat_message("Assistant"):
             st.write( answer )
 
         question = None # To exit the loop and wait for the next question.
