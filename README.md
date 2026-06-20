@@ -1,6 +1,7 @@
 # documentView
-The documentView API enables semantic search and question answering over documents using a Retrieval-Augmented Generation (RAG) pipeline. 
-The purpose of RAG is to specialize an Large Language Model on a particular dataset corpus without complex retraining effort.
+The documentView is semantic search and question and answering over a document relying on Retrieval-Augmented Generation (RAG). 
+
+RAG enables specializing Large Language Model (llm) on a particular dataset corpus without complex retraining effort.
 
 To summarized, a RAG process consistes of five steps :
 - Load the document a extract the corpus
@@ -16,15 +17,15 @@ This step consiste of converting each document chunk into a vector (embedings) u
 The last step consiste of retreiving information from the document through retreival and generation process. This means, when a user as question, the question is converted to a vector using the same LLM that was used to generate embeddings of the corpus text. The question's embadding is then use to conduct similarity search to vector database, the top k most similar chunk are the retreived.
 
 - Prompt engineering and generation 
- Finaly both the question and the top k chunked are used to build the prompt to send to the LLM to generate the final answer that is send back to the user.
-
-In section, I provide details of technical and scientific implementation of documentview.
+Finaly both the question and the top k chunked are used to build the prompt to send to the LLM to generate the final answer that is send back to the user.
 
 # 1. Quit start
 
-Working with DocumentView is very simple. After installation, one simply upload a document and start questionning it. for the moment both `Pdf` and `txt` are supported.
+Working with DocumentView is very simple. After installation, one simply need to upload a document and start questionning it. for the moment both `Pdf` and `txt` are supported.
 
-The installation procedure of `DocumentView` is the following:
+Installation procedure of `DocumentView`.
+
+## 1.1. Installation from repository code 
 - clone the repository 
 ```
   git clone https://github.com/DonaldMOUAFO/documentView.git
@@ -33,27 +34,50 @@ The installation procedure of `DocumentView` is the following:
 ```
   cd documentView/
 ```
-- Create a virtual environement 
+- Create and activate a virtual environement 
+The simplest way to create a virtual environnement is using the following code.
+```
+  python3 -m venv my/env/name
+```
+Another common option is using conda. This assumes conda to be installed.
 ```
   conda create -m my/env/name
 ```
-- Install requirements.txt
+Activate the virtual environement using one of the following code depending on how it was created.
+```
+  source my/env/name/bin/activate
+  conda activate my/env/name
+```
+- Install the required packages inside the virtual environements
 ```
   pip install -r requirement.txt
-```
-- Run Ollama server
-Before to run documentview, runs ollama first to make embedding models available for api call
-```
-  ollama serve
 ```
 - Install documentView
 ```
   pip install .
 ```
 If you want to edit the code, do not hesitate to install the package in editable mode `pip install -e .`
-After installation, the app can be run as follow.
+After installation, one can then runs it.
+
+`DocumentView` is a two-service local LLM application consiting of `Ollama` server storing the LLM models and the `streamlit` application providing UI to load document and interact with. Therefore, running `DocumentView`requires running both services.
+
+- Run Ollama server
+Before to run documentview, runs ollama first to make embedding models available for api call
+```
+  ollama serve
+```
+- Run the streamlit app to open UI.
 ```
   streamlit run src/application/app.py 
+```
+
+## 1.2. Installation from docker images 
+Pull the docker images of both the ollama server and streamlit app from [documentview's docker registery](https://hub.docker.com/r/donaldmouafo01/documentview)
+
+```
+  docker pull donaldmouafo01/documentview:v1.0.0
+  docker pull donaldmouafo01/ollama-documentview:v1.0.0
+  docker compose -f docker-compose_pulling.yaml up
 ```
 #### Work with `documentview`
 After running the previous code, the UI interface can be access at the address [http://localhost:8501]. 
@@ -78,18 +102,59 @@ The following image is an illustration of the User Interface of DocumentView.
 
 # 2. Deploiement from docker container
 To run documentview in a server, docker deployement is recommanded.
+As already mentioned, it can be seen from the `docker-compose.yml` that `documentview` is a two-service application compose of `ollama` for interacting with llm model via api call and streamlit with the question and answer UI. The image bellow shows the architecture of `documentview`.
+<p align="center"> 
+  <img src="data/images/documentview_ollama_architecture.png" width="900">
+  <p style="font-size: 18px; color: gray; text-align: center">
+    <li style="color:red; text-align: center" ><b>Documentview architecture. </li>
+  </p> 
+  <!---<li style="color:red"; "text-align: center" ><b>One can see typical discussion with the uploaded document. </li> --->
+</p>
 
 ## 2.1 Docker image and container registery
 
-After pulling the repository from the server or what ever computer.
+### 2.1.a Build images and runs locally
+To build the image and push custom image on docker registery do the following to pull `ollama/ollama:latest` image and build `donaldmouafo01/documentview:v1.0.0`.
 ```
   docker compose down
   docker compose up -d
-  docker exec -it ollama-server ollama pull llama3
 ```
-Documentview is accessible at [http://localhost:8501].
+The application relies on `ollama/ollama:latest` docker image, so docker-compose.yml firt pull it from docker hub. Then the `donaldmouafo01/documentview:v1.0.0` is build.
 
-## 2.2 Docker deploiement from setup.sh
+At this stage of the developement, I decided to provide a costum tag to the ollama image and push it with new tag name to docker hub to make sure the application will work with the same configuration in the future.
+```
+  docker tag ollama/allama:latest donaldmouafo01/ollama-documentview:v1.0.0
+```
+
+- PUSH TO DOCKER UP
+```
+  docker push donaldmouafo01/ollama-documentview:v1.0.0
+  docker push donaldmouafo01/documentview:v1.0.0
+```
+**Important not** : 
+  Pushing `ollama/allama:latest` may not be necessairely as it not diffrent from original image appart from the code bellow which pull `ollama3` model in the container. This is because we can always pull olloma container at any time and from any place where internet is available.
+  ```
+    docker exec -it ollama-server ollama pull llama3
+  ```
+  However, relying on ollama directectly requires to pull ollama3 any time `ollama/allama:latest` is pulled.
+
+### 2.1.b Plll costume images and runs locally
+Execute the following code the run `documentview` localy
+```
+  docker compose up -d
+```
+This pulls both images from Docker Hub automatically (no manual docker pull step needed, Compose does it), creates the `llm-network`, `bridge` and `ollama-data` volume, and starts both containers.
+
+Pull a model into Ollama (unless the image `ollama-documentview` image is used since it already bakes one in).
+
+Documentview is accessible at [http://localhost:8501].
+## 2.2 Push docker image to docker hub 
+
+```
+  docker push donaldmouafo01/documentview:v1.0.0
+```
+
+## 2.3 Docker deploiement from setup.sh
 On simple way is to download `setup.sh` on your local computer and excute it as follow.
 ``` 
   ./setup.sh

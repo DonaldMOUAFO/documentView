@@ -24,7 +24,7 @@ services:
     container_name: ollama-server
 
     ports:
-      - "11435:11434"
+      - "11434:11434"
 
     # Persist downloaded models between container restarts
     volumes:
@@ -49,7 +49,7 @@ services:
   documentview:
     build: 
       context: .
-
+    image: donaldmouafo01/documentview:v1.0.0
     container_name: documentview
 
     ports:

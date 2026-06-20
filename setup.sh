@@ -6,7 +6,7 @@ set -e
 #  Configuration
 # ─────────────────────────────────────────────
 # Define the directory where the script is located
-#SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+# SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 REPO_URL="https://github.com/DonaldMOUAFO/documentView.git"
 PROJECT_DIR="documentView"

@@ -1,0 +1,44 @@
+services:
+  # =======================================================
+  # Ollama Service (your custom pushed image)
+  # =======================================================
+  ollama:
+    image: donaldmouafo01/ollama-documentview:v1.0.0
+    container_name: ollama-server
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama-data:/root/.ollama
+    networks:
+      llm-network:
+        aliases:
+          - ollama
+    restart: unless-stopped
+    dns:
+      - 8.8.8.8
+      - 1.1.1.1
+
+  # =======================================================
+  # DocumentView Application (your custom pushed image)
+  # =======================================================
+  documentview:
+    image: donaldmouafo01/documentview:v1.0.0
+    container_name: documentview
+    ports:
+      - "8501:8501"
+    depends_on:
+      - ollama
+    networks:
+      - llm-network
+    environment:
+      OLLAMA_BASE_URL: http://ollama:11434
+    restart: unless-stopped
+
+networks:
+  llm-network:
+    name: llm-network
+    driver: bridge
+
+volumes:
+  ollama-data:
+    name: ollama-data
