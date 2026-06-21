@@ -212,18 +212,82 @@ Documentview is composed of five main components :
 - Retrial and chat (user question) processing
 - Promt engineering and generation 
 
-  ## 3.1 Document handeling
-  #### To do
-  
-  ## 3.2 Document cleaning and chunking
-  #### To do
+## 3.1 Document handeling
+Two document types are actualy handles in `documentview` that are `Pdf`and `.txt`.
 
-  ## 3.3 Vector based building : Embedings generation and indexing
-  #### To do
-  
-  ## 3.4 Retrial and chat (user question) processing
-  The notion of reranking
-  #### To do 
-  
-  ## 3.5 Promt engineering and generation
-  #### To do
+To handle the text file, the correspond content of the file is first retrieved from the filename using `io.StringIO` package, then the string is after clean and chunks appropriately.
+
+Similarly, for the `PdF` document, the string text is extracted using PyPDF2 package and is `PdfReader` class. Then, the string is cleaned and chunked appropriately.
+
+## 3.2 Document cleaning and chunking
+The cleaning process consiste of the following process :
+- collapses multiple consecutive newlines into a single newline
+- strip out page markers
+- remove HTML tags and special characters, keep basic punctuation
+- remove non-alphanumeric characters except basic punctuation
+- replace tabs with spaces and collapse multiple spaces into one
+- collapse multiple spaces into a single space    text = re.sub(r' +', ' ', text)
+
+The text chunking is conducted recursively using a character-based splitter and particularly `RecursiveCharacterTextSplitter` from langchain_text_splitters module. The maximum size of each chunk is 400 characters and the number of overlapping characters between chunks is default to 80 characters.
+ 
+## 3.3 Vector based building : Embeddings generation and indexing
+The embedding of the corpus is conducted using SentenceTransformer class from sentence_transformers modules.
+The model used is `sentence-transformers/all-mpnet-base-v2` which map maps sentences & paragraphs (chunk) to a 768 dimensional dense vector space to be use for tasks like clustering or semantic search.
+The indexing embeddings consiste of constructing the embedding as an object that has an add method to add x_i vector with the dimension of x_i is assumed to be fixed and each x_i associate to ith embedding vector and the corresponding chunck.
+I used FAISS to construct a vector store on the load document and the corresponding index. 
+Faiss is a library for efficient similarity search and clustering of dense vectors. It contains algorithms that search in sets of vectors of any size, up to ones that possibly do not fit in RAM. It also contains supporting code for evaluation and parameter tuning.
+
+Build a FAISS HNSW index from the given embeddings (A 2D array of embeddings with the shape (num_samples, embedding_dim)). Must be normalized if using IndexHNSWFlat for cosine similarity. The number of neighbors in the HNSW graph (default: 16). `ef_construction (int)` the size of the dynamic list for construction (default: 200) and `ef_search (int)`: The size of the dynamic list for search (default: 64).
+
+## 3.4 Retrieval and chat (user question) processing
+The retrieval pipeline consiste of the following steps :
+1. Embeddes the question as by the user trought the streamlit app. The step is conducted using exactly the same function used to generate embedding for chunks.
+2. Use the question's embedding to retrieve the to k nearrest embeddings of chunk to the vector search or more said faiss index ranked in descending order.  
+3. Retrieve the top k coresponding test_chunk based on the top k embedding obtained from embeddings retrieval
+4. Build the prompt.
+
+## 3.5 Promt engineering and generation
+
+I adopted a prompt engineering based conversation history aware prompt which consiste of leading llm beeing aware of the history of discussion.
+
+The prompt engineering is build upon a system prompt. 
+I implemented two system prompt manageable during the model call to generate answer exlusively base on context or the possibility of generate answer.
+Both are the following :
+```
+  STRICT_SYSTEM_PROMPT = (
+    "You are a concise assistant. Use ONLY the provided context. "
+    "If the answer is not contained verbatim or explicitly, say you do not know."
+  )
+  ###
+  SYNTHESIZING_SYSTEM_PROMPT = (
+    "You are a concise assistant. Rely ONLY on the provided context, but you MAY synthesize "
+    "an answer by combining or paraphrasing the facts present. If the context truly lacks "
+    "sufficient evidence, say you do not know instead of guessing."
+  )
+```
+Next, the `context` is build with essentially consistes of top k chunked text revieved.
+
+Next, the question is agregated the context and the answer is generated and return to the UI.
+
+** Note : this is non hystory aware prompt**
+
+In order to include history aware prompt, before to send the prompt to the model for anwser generation I agregate to the prompt the history of previous interation to the document. It is only after this, that the prompt is sent to the model for answer generation.
+
+The final prompt engineering is similar to the function below :
+```
+  def history_aware_prompt(prompt, discussion_historic, last_question):
+
+    history = "\n".join(
+        [f"{m['role']}:{m['content']}" for m in messages_historic]
+    )
+
+    prompt = f"""{prompt},
+    
+    Conversation :
+    {history}
+
+    Question :
+    {last_question}
+    """
+    return prompt
+```

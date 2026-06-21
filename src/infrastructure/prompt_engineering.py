@@ -52,20 +52,11 @@ def history_aware_prompt(prompt, messages_historic, last_question):
     """
     return prompt
 
-
 def handle_html_content(prompt:dict):
-
     return div(
-
         b("System"),
         pre(prompt["System"]),
         tyle="display:inline-block; margin:0; vertical-align:top;"
-    
-        #row("System:", prompt["System"]),
-        # b("System"), pre( prompt["System"] ) ,
-        # div( b("Context:"), pre("".join(prompt["Context"])) ),
-        # div( b("User:"), pre("".join(prompt["User"]))) ,
-        # div( b("Answer:"), pre("".join(prompt["Answer"])) )
     )  
 
 def row(label, content):
@@ -76,7 +67,6 @@ def row(label, content):
     )  
 
 def build_prompt_ui(prompt:dict):
-
     return div(
         row("System:", prompt["System"]),
         row("Context:", prompt["Context"]),
@@ -157,7 +147,6 @@ def generation_chat_response(model:str, prompt):
     # }
     #prompt["Answer"] = res["message"]["content"]
     return res["message"]["content"]
-   
 
 def _sentence_split(text:str) -> list[str] :
     """Splits text into sentences using regrex"""
