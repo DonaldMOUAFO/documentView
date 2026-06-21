@@ -36,8 +36,6 @@ def build_prompt(context, question:str, allow_synthesis: bool=False) -> str:
 
 def history_aware_prompt(prompt, messages_historic, last_question):
 
-    # prompt_str = f"""System:{prompt["System"]}\n\nContext:\n{prompt["Context"]}\n\nUser:{prompt["User"]}"""
-
     history = "\n".join(
         [f"{m['role']}:{m['content']}" for m in messages_historic]
     )
