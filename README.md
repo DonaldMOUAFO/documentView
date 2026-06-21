@@ -106,7 +106,7 @@ As already mentioned, it can be seen from the `docker-compose.yml` that `documen
 <p align="center"> 
   <img src="data/images/documentview_ollama_architecture.png" width="900">
   <p style="font-size: 18px; color: gray; text-align: center">
-    <li style="color:red; text-align: center" ><b>Documentview architecture. </li>
+    <li style="color:red; text-align: center" ><b>Documentview architecture.</b> </li>
   </p> 
   <!---<li style="color:red"; "text-align: center" ><b>One can see typical discussion with the uploaded document. </li> --->
 </p>
@@ -131,7 +131,7 @@ At this stage of the developement, I decided to provide a costum tag to the olla
   docker push donaldmouafo01/ollama-documentview:v1.0.0
   docker push donaldmouafo01/documentview:v1.0.0
 ```
-**Important not** : 
+*Important not* : 
   Pushing `ollama/allama:latest` may not be necessairely as it not diffrent from original image appart from the code bellow which pull `ollama3` model in the container. This is because we can always pull olloma container at any time and from any place where internet is available.
   ```
     docker exec -it ollama-server ollama pull llama3
@@ -269,7 +269,7 @@ Next, the `context` is build with essentially consistes of top k chunked text re
 
 Next, the question is agregated the context and the answer is generated and return to the UI.
 
-** Note : this is non hystory aware prompt**
+*Note : this is non hystory aware prompt*
 
 In order to include history aware prompt, before to send the prompt to the model for anwser generation I agregate to the prompt the history of previous interation to the document. It is only after this, that the prompt is sent to the model for answer generation.
 
