@@ -19,7 +19,7 @@ The last step consiste of retreiving information from the document through retre
 - Prompt engineering and generation 
 Finaly both the question and the top k chunked are used to build the prompt to send to the LLM to generate the final answer that is send back to the user.
 
-# 1. Quit start
+# 1. Quickstart
 
 Working with DocumentView is very simple. After installation, one simply need to upload a document and start questionning it. for the moment both `Pdf` and `txt` are supported.
 
