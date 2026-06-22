@@ -106,9 +106,9 @@ As already mentioned, it can be seen from the `docker-compose.yml` that `documen
 <p align="center"> 
   <img src="data/images/documentview_ollama_architecture.png" width="900">
   <p style="font-size: 18px; color: gray; text-align: center">
-    <li style="color:red; text-align: center" ><b>Documentview architecture.</b> </li>
+    Documentview architecture
   </p> 
-  <!---<li style="color:red"; "text-align: center" ><b>One can see typical discussion with the uploaded document. </li> --->
+
 </p>
 
 ## 2.1 Docker image and container registery
@@ -290,4 +290,23 @@ The final prompt engineering is similar to the function below :
     {last_question}
     """
     return prompt
+```
+
+# 4. CI/CD pipeline
+The CI/CD pipeline enables to automaticaly build the docker image and push it to docker hub and in the future deploy it on the server all this at any time new push is realise on the branch "main".
+
+Here is the sequence of the step follow a `github actions`to push a new image on docker hub.
+- login to docker up : The action uses github secrets  
+- Build and push the docker image
+
+This is the architecture of the application for the MLops's CI/CD pipeline logic. 
+```
+  documentview/
+  ├── data
+  ├── src
+  ├── Dockerfile
+  ├── docker-compose.yml
+  └── .github/
+      └── workflows/
+          └── docker.yml
 ```
